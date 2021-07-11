@@ -1,0 +1,145 @@
+.home-complete {
+  margin: 0px auto 0;
+  #header_stains{
+   #top_stain {
+      transform: translateY(65px);
+      width: 100%;
+    }
+  }
+  .home-page{
+  display: grid;
+  max-width: 1200px;
+  grid-template-columns: 1fr 374px;
+  overflow: hidden;
+  margin: 0px auto 50px;
+  transform: translateY(36px);
+
+  @media screen and(max-width: 990px) {
+    grid-template-columns: 60px 1fr;
+    margin: 250px 20px 50px
+  }
+
+  @media screen and(max-width: 590px) {
+    grid-template-columns: 1fr;
+    margin: 250px 8px 50px;
+  }
+
+  .main {
+    .home-header {
+      margin: 0 auto 12px;
+      text-align: center;
+      
+      .connection-form {
+        background: $color-4;
+        border: 3px solid $color-3;
+        border-radius: 8px;
+        padding: 35px;
+
+        ul {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 28px;
+        
+
+          li {
+            padding: 16px 28px;
+            transition: .2s;
+            margin: 0 8px;
+            color: $color-1;
+          }
+          .active-btn {
+            text-shadow: 1px 2px 0px $black;
+            width: 215px;
+            font-size: 1.2em;
+            background-image: url('../assets/img/brush_btn2_inactive2.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position-x: 3px;
+            background-position-y: 0px;
+  
+        
+          }
+          li:not(.active-btn) {
+            width: 155px;
+            cursor: pointer;
+            padding: 16px 28px;
+            background-image: url('../assets/img/brush_btn1.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position-x: 8px;
+            background-position-y: 5px;
+            &:hover {
+              text-shadow: 1px 2px 0px $color-4;
+              color: $color-3;
+              background-image: url('../assets/img/brush_btn1_hover.png');
+              background-repeat: no-repeat;
+              background-size: 100%;
+              background-position-x: 8px;
+              background-position-y: 5px;
+              }
+            
+          }
+        }
+        form {
+          label{
+            font-size: 1.6em;
+            text-shadow: 2px 3px 0px $color-1;
+          }
+          #email, #password {
+
+            padding: 10px;
+
+            font-size: 1.4rem;
+            font-family: $font-2;
+            
+          }
+          #password {
+            font-size: 2rem;
+          }
+           #terms{
+          position:relative;
+          right: 8px;
+          top: 8px;
+        }
+        #conditions{
+          font-family: $font-5;
+          font-size: 1.6em;
+          position: relative;
+          bottom: -10px;
+          left: 14px;
+          text-shadow: none;
+          color: $color-3;
+        
+        a {
+          color: rgb(96, 0, 213);
+          text-shadow: none;
+        }
+        }
+          input[type=submit] {
+            margin-top: 20px;
+            padding: 0;
+            
+            cursor: pointer;
+            font-family: $font-3;
+            font-size: 1.6em;
+          }
+        }
+      }
+    }
+  }
+  .right-side {
+    position: relative;
+    width: 100%;
+    margin: 48px 0 0 14px;
+
+    @media screen and(max-width: 990px) {
+      display: none;
+    }
+  
+    .right-side-container {
+      position: fixed;
+    
+    }
+  }
+}
+}

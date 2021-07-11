@@ -1,0 +1,150 @@
+@font-face {
+  font-family: "font-1";
+  src: url(./assets/fonts/Aileron-SemiBold.otf);
+}
+@font-face {
+  font-family: "font-2";
+  src: url(./assets/fonts/Kalam-Regular.ttf);
+}
+@font-face {
+  font-family: "font-3";
+  src: url(./assets/fonts/edo.ttf);
+}
+@font-face {
+  font-family: "font-4";
+  src: url(./assets/fonts/blowbrush.otf);
+}
+@font-face {
+  font-family: "font-5";
+  src: url(./assets/fonts/Kalam-Regular.ttf);
+}
+
+$font-1: "font-1", sans-serif;
+$font-2: "font-2", serif;
+$font-3: "font-3", serif;
+$font-4: "font-4", sans-serif;
+$font-5: "font-5", sans-serif;
+
+$color-1: #f99c2e;
+$color-2: #fcc680;
+$color-3: rgb(64, 64, 64);
+$color-4: #d1d1d1;
+$color-5: #62152e;
+$black: rgb(0, 0, 0);
+$white: #f9f7f4;
+$shadow: rgb(219, 218, 218);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  border: none;
+  text-decoration: none;
+
+  &::selection {
+    background: $color-1;
+    
+  }
+  
+      
+      
+}
+
+
+a,
+a:visited {
+  color: $color-1;
+}
+
+input,
+textarea {
+  margin-top: 12px;
+  vertical-align: middle;
+  border: none;
+  resize: none;
+  overflow: auto;
+  width: 320px;
+  height: 56px;
+  color: $color-3;
+  font-family: $font-2;
+  
+}
+
+input[type="text"], input[type="password"]{
+  text-align: center;
+  width: 400px;
+  background-color: transparent;
+  background-image: url('./assets/img/brush_input.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+  &:focus {
+    outline: none;
+    background-image: url('./assets/img/brush_input_focus.png');
+  }
+}
+
+textarea{
+  color: $color-3;
+  text-align: center;
+  background-color: transparent;
+  
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button,
+input[type="submit"] {
+  background-color: transparent;
+  background-image: url('./assets/img/brush_btn_submit.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: $color-3;
+  font-family: $font-3;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  text-shadow: 2px 3px 0px $color-1;
+
+  &:hover {
+    background-image: url('./assets/img/brush_btn_submit_hover.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    color: $color-3;
+    text-shadow: 2px 3px 0px $color-4;
+  }
+}
+input[type="checkbox"] {
+  box-shadow: none;
+  width: 20px;
+  margin: 10px 0;
+}
+i {
+  transition: 0.15s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+body {
+  font-family: $font-3;
+  line-height: 1.4rem;
+  background: $white;
+  color: $color-3;
+
+  
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
+.success {
+  color: green;
+  font-weight: bold;
+}
