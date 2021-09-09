@@ -15,7 +15,7 @@ export const getUser = (uid) => {
         .then((res) => {
             dispatch({ type: GET_USER, payload: res.data});
         })
-        .catch((err)=> console.log('Get mon cul' + err));
+        .catch((err)=> console.log('Get-user-error' + err));
     };
 };
 
@@ -25,7 +25,6 @@ export const uploadPicture = (data, id) => {
        .post(`http://localhost:5000/api/user/upload`, data)
        .then((res) => {
            if (res.data.errors) {
-            console.log("wesh" + res.data);
                dispatch({ type: GET_USER_ERRORS, payload: res.data.errors})
            } else {
 
@@ -36,7 +35,7 @@ export const uploadPicture = (data, id) => {
                });
            }
        })
-       .catch((err) => {console.log("Tu la sens l'img " + err)}); 
+       .catch((err) => {console.log("Upload-picture-error " + err)}); 
     };
 };
 
@@ -48,7 +47,7 @@ export const updateBio = (id, bio) => {
                 dispatch({ type: UPDATE_BIO, payload: bio });
             })
             .catch((err) => {
-            console.log("Tu la sens la bio " + err);
+            console.log("Update-bio-error " + err);
             });
     };
 };
@@ -63,7 +62,7 @@ export const followUser = (followerId, idToFollow) => {
             .then((res) => {
                 dispatch({ type: FOLLOW_USER, payload: {idToFollow}});
             })
-            .catch((err) => console.log("Follow ton boule" + err));
+            .catch((err) => console.log("Follow-user-error" + err));
         
     }
 }
@@ -78,7 +77,7 @@ export const unfollowUser = (followerId, idToUnFollow) => {
         .then((res) => {
           dispatch({ type: UNFOLLOW_USER, payload: { idToUnFollow } });
         })
-        .catch((err) => console.log("Unfollow ton boule" + err));
+        .catch((err) => console.log("Unfollow-user-error" + err));
         
     };
 }

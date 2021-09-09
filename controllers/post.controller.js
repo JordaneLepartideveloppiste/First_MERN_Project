@@ -56,7 +56,7 @@ module.exports.createPost = async (req, res) => {
         const post = await newPost.save();
         return res.status(201).json(post);
     } catch (err) {
-        return res.status(400).send("Va niquer ta mère " + err);
+        return res.status(400).send("PostModel-error " + err);
     }
 };
 
@@ -64,7 +64,9 @@ module.exports.createPost = async (req, res) => {
 
 module.exports.updatePost = async (req, res) => {
   if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("C'est quoi cet ID de merde : " + req.params.id)
+        return res
+          .status(400)
+          .send("What kind of Id :" + req.params.id + " ?");
     
     const updatePost = {
         message: req.body.message
@@ -76,26 +78,26 @@ module.exports.updatePost = async (req, res) => {
         { new : true},
         (err, docs) => {
             if (!err) res.send(docs);
-            else console.log("Dans ton cul la màj : " + err);
+            else console.log("Update-post-error : " + err);
         }
     )
 };
 
 module.exports.removePost = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
-      return res.status(400).send("C'est quoi cet ID de merde : " + req.params.id)
+      return res.status(400).send("What kind of Id : " + req.params.id + " ?")
 
     PostModel.findByIdAndRemove(
         req.params.id, (err, docs) => {
             if (!err) res.send(docs);
-            else console.log("Supprime donc ton sourire l'erreur c'est : " + err);
+            else console.log("Delete-post-error : " + err);
         }
     );
 };
 
 module.exports.likePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-      return res.status(400).send("C'est quoi cet ID de merde : " + req.params.id)
+      return res.status(400).send("What kind of Id : " + req.params.id + " ?");
     
     try {
         await PostModel.findByIdAndUpdate(
@@ -123,7 +125,7 @@ module.exports.likePost = async (req, res) => {
 
 module.exports.unlikePost = async (req, res) => {
     if (!ObjectID.isValid(req.params.id))
-      return res.status(400).send("C'est quoi cet ID de merde : " + req.params.id);
+      return res.status(400).send("What kind of Id :" + req.params.id + " ?");
     
     try {
       await PostModel.findByIdAndUpdate(
@@ -152,7 +154,7 @@ module.exports.commentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res
         .status(400)
-        .send("C'est quoi cet ID de merde : " + req.params.id);
+        .send("What kind of Id :" + req.params.id + " ?");
 
     try{
       return PostModel.findByIdAndUpdate(
@@ -184,7 +186,7 @@ module.exports.editCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res
         .status(400)
-        .send("C'est quoi cet ID de merde : " + req.params.id);
+        .send("What kind of Id :" + req.params.id + " ?");
     
     try{
         return PostModel.findById(
@@ -196,7 +198,7 @@ module.exports.editCommentPost = (req, res) => {
                   comment._id.equals(req.body.commentId)
                 );
                 console.log(docs.comments);
-                if (!theComment) return res.status(404).send('Et si on cherchait dans ton cul')
+                if (!theComment) return res.status(404).send('Comment Not found')
                 theComment.text = req.body.text;
 
                 return docs.save((err) => {
@@ -215,7 +217,7 @@ module.exports.deleteCommentPost = (req, res) => {
     if (!ObjectID.isValid(req.params.id))
       return res
         .status(400)
-        .send("C'est quoi cet ID de merde : " + req.params.id);
+        .send("What kind of Id : " + req.params.id + " ?");
     try {
       return PostModel.findByIdAndUpdate(
         req.params.id,

@@ -11,6 +11,6 @@ export const getUsers = () => {
                 type: GET_USERS, 
                 payload: res.data });
         })
-        .catch ((err) => console.log("Tes utilisateurs tu sais où tu te les fous " + err));
+        .catch ((err) => console.log("Get-users-error " + err));
     };
 };

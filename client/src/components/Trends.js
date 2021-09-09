@@ -27,7 +27,7 @@ const Trends = () => {
 
     return (
         <div className="trending-container">
-            <h4>La boucherie du moment</h4>
+            <h4>Le titre du moment</h4>
             <NavLink exact to="/trending">
                 <ul>
                     {trendList.length &&

@@ -22,11 +22,10 @@ const SignUpForm = () => {
         termsError.innerHTML="";
 
         if (password !== controlPassword || !terms.checked) {
-            console.log("Ta mere");
             if (password !== controlPassword)
             passwordConfirmError.innerHTML="Taper deux fois le même mot c'est si compliqué???";
             if(!terms.checked)
-            termsError.innerHTML="Coche la case enfoiré!";
+            termsError.innerHTML="Veuillez cocher la case!";
         } else {
             await axios({
                 method:"post",
@@ -38,7 +37,6 @@ const SignUpForm = () => {
                 }
             })
             .then((res) => {
-              console.log(res);
                 if(res.data.errors) {
                     pseudoError.innerHTML = res.data.errors.pseudo;
                     emailError.innerHTML = res.data.errors.email;
@@ -48,7 +46,7 @@ const SignUpForm = () => {
                 }
 
             })
-            .catch((err) => console.log('La putain de ta ' + err));
+            .catch((err) => console.log('Signup-error ' + err));
         }
     }
 

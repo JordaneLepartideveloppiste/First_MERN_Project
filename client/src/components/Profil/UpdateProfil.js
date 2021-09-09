@@ -24,10 +24,10 @@ const UpdateProfil = () => {
     return (
       <div className="profil-container">
         <LeftNav />
-        <h1>Voilà ton profil enfoiré de {userData.pseudo}</h1>
+        <h1>Voilà ton profil, {userData.pseudo}</h1>
         <div className="update-container">
           <div className="left-part">
-            <h3>Ta Ganache</h3>
+            <h3>Ta Tête</h3>
             <img src={userData.picture} alt="photo_profil" />
             <Uploadimg />
             <p>{error.maxSize}</p>
@@ -62,18 +62,18 @@ const UpdateProfil = () => {
               {dateParser(userData.createdAt)}
             </h4>
             <h5 onClick={(e) => setFollowingPopUp(true)}>
-              Abo :{" "}
+              Abos :{" "}
               {userData.following ? userData.following.length : ""}
             </h5>
             <h5 onClick={(e) => setFollowersPopUp(true)}>
-              Followers : {userData.followers ? userData.followers.length : ""}
+              Abonnés : {userData.followers ? userData.followers.length : ""}
             </h5>
           </div>
         </div>
         {followingPopUp && (
           <div className="popup-profil-container">
             <div className="modal">
-              <h3>Ceux que tu suces</h3>
+              <h3>Qui tu suis</h3>
               <span className="cross" onClick={(e) => setFollowingPopUp(false)}>
                 &#10005;
               </span>
@@ -103,7 +103,7 @@ const UpdateProfil = () => {
         {followersPopUp && (
           <div className="popup-profil-container">
             <div className="modal">
-              <h3>Tes suceurs</h3>
+              <h3>Tes abonnés</h3>
               <span className="cross" onClick={(e) => setFollowersPopUp(false)}>
                 &#10005;
               </span>

@@ -30,7 +30,7 @@ export const getPosts = (num) => {
             dispatch({ type: GET_POSTS, payload: array})
             dispatch({ type: GET_ALL_POSTS, payload: res.data})
         })
-        .catch((err) => console.log('Oulala tous les posts dans ton ' + err));
+        .catch((err) => console.log('Get-posts-error ' + err));
     };
 };
 
@@ -58,7 +58,7 @@ export const likePost = (postId, userId) => {
         .then((res) => {
             dispatch({ type: LIKE_POST, payload: {postId, userId}})
         })
-        .catch((err) => console.log('Cœur plein de merde ' + err))
+        .catch((err) => console.log('Like-post-error ' + err))
     };
 };
 
@@ -72,7 +72,7 @@ export const unlikePost = (postId, userId) => {
         .then((res) => {
             dispatch({ type: UNLIKE_POST, payload: { postId, userId } });
         })
-        .catch((err) => console.log('Cœur vide de merde ' + err))
+        .catch((err) => console.log('Unlike-post-error ' + err))
     };
 };
 
@@ -86,7 +86,7 @@ export const updatePost = (postId, message) => {
         .then((res) => {
             dispatch({ type: UPDATE_POST, payload: { message, postId } });
         })
-        .catch((err) => console.log('Ta modif tu peux te la fourrer ' + err));
+        .catch((err) => console.log('Update-post-error' + err));
     };
 };
 
@@ -99,7 +99,7 @@ export const deletePost = (postId) => {
         .then((res) => {
             dispatch({ type: DELETE_POST, payload: {postId}});
         })
-        .catch((err) => console.log('Elle est profonde la suppression ' + err));
+        .catch((err) => console.log('Delete-post-error ' + err));
 
     };
 };
@@ -117,7 +117,7 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
             payload: { postId },
           });
         })
-        .catch((err) => console.log("Ton new com tu peux l'enfouir dans " + err));
+        .catch((err) => console.log("Add-comment-error " + err));
     };
 }
 
@@ -134,7 +134,7 @@ export const editComment = (postId, commentId, text) => {
             payload: { postId, commentId, text },
           });
         })
-        .catch((err) => console.log("Ta modif, où veux-tu qu'on te l'introduise? " + err));
+        .catch((err) => console.log("Update-comment-error " + err));
     };
 };
 
@@ -151,7 +151,7 @@ export const deleteComment = (postId, commentId) => {
             payload: { postId, commentId },
           });
         })
-        .catch((err) => console.log("Ta suppression je pense que tu sais où tu te la mets à force " + err));
+        .catch((err) => console.log("Delete-comment-error " + err));
     };
 };
 

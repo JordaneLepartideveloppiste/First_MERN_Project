@@ -27,7 +27,7 @@ const NewPostForm = () => {
             cancelPost();
 
         } else {
-            alert("Où tu as vu qu'on envoyait des messages vides???")
+            alert("Où as-tu vu qu'on envoyait des messages vides???")
         }
     };
 
@@ -105,7 +105,7 @@ const NewPostForm = () => {
               <textarea
                 name="message"
                 id="message"
-                placeholder="What's Up? A brandNew???"
+                placeholder="What's Up? Du nouveau???"
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
               />
@@ -165,7 +165,7 @@ const NewPostForm = () => {
                   <div className="send">
                     {message || postPicture || video.length > 20 ? (
                       <button className="cancel" onClick={cancelPost}>
-                        Annule ton mess
+                        Annuler ton message
                       </button>
                     ) : null}
                     <button onClick={handlePost}>Balancer</button>

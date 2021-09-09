@@ -30,7 +30,7 @@ const handleLogin= (e) => {
       })
 
       .catch((err) => {
-        console.log("Hey va niquer ton " + err);
+        console.log("Login-error " + err);
       });
 };
 

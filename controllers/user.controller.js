@@ -9,18 +9,18 @@ module.exports.getAllUsers = async (req, res) => {
 module.exports.userInfo = (req, res) => {
     console.log(req.params);
     if (!ObjectID.isValid(req.params.id))
-        return res.status(400).send("Arrête d'inventer des ID : " + req.params.id)
+        return res.status(400).send("What kind of Id : " + req.params.id + " ?")
     
         UserModel.findById(req.params.id, (err, docs) => {
             if(!err) res.send(docs);
-            else console.log('ID de merde : ' + err);
+            else console.log('Id-error : ' + err);
         }).select('-password');
 };
 
 module.exports.updateUser = async (req, res) => {
     console.log(req.params);
     if (!ObjectID.isValid(req.params.id))
-      return res.status(400).send("Arrête d'inventer des ID : " + req.params.id)
+      return res.status(400).send("What kind of Id : " + req.params.id + " ?")
 
     try {
         await UserModel.findOneAndUpdate(
@@ -29,7 +29,7 @@ module.exports.updateUser = async (req, res) => {
             {new: true, upsert: true, setDefaultsOnInsert: true},
             (err, docs) => {
                 if(!err) return res.send(docs);
-                if(err) return res.status(500).send("La pute pute pute de Màj " + err);
+                if(err) return res.status(500).send("Update-user-error " + err);
             }
             )
     } 
@@ -41,11 +41,11 @@ module.exports.updateUser = async (req, res) => {
 module.exports.deleteUser = async (req, res) => {
     console.log(req.params);
     if (!ObjectID.isValid(req.params.id))
-      return res.status(400).send("Arrête d'inventer des ID : " + req.params.id)
+      return res.status(400).send("Id-error : " + req.params.id)
 
     try {
         await UserModel.remove({_id: req.params.id}).exec();
-        res.status(200).json({message: "Repose en paix "});
+        res.status(200).json({message: "Rest in peace "});
     } catch (err) {
       return res.status(500).json({ message: err });
     }
@@ -53,7 +53,7 @@ module.exports.deleteUser = async (req, res) => {
 
 module.exports.follow = async (req, res) => {
     if (!ObjectID.isValid(req.params.id) || !ObjectID.isValid(req.body.idToFollow))
-      return res.status(400).send("Arrête d'inventer des ID : " + req.params.id)
+      return res.status(400).send("Id-error : " + req.params.id)
 
     try {
         //add to the followers list
@@ -90,7 +90,7 @@ module.exports.follow = async (req, res) => {
 
 module.exports.unfollow = async (req, res) => {
     if (!ObjectID.isValid(req.params.id) ||!ObjectID.isValid(req.body.idToUnFollow))
-      return res.status(400).send("Arrête d'inventer des ID : " + req.params.id);
+      return res.status(400).send("Id-error : " + req.params.id);
 
     try {
       //delete from the followers list

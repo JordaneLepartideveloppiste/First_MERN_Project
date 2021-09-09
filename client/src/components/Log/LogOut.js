@@ -15,7 +15,7 @@ const LogOut = () => {
             withCredentials: true,
         })
         .then(() => removeCookie("jwt"))
-        .catch((err) => console.log('Dans ton cookie ' + err));
+        .catch((err) => console.log('Cookie-error ' + err));
 
         window.location = '/';
 
