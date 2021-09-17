@@ -1,5 +1,5 @@
 .home-complete {
-  margin: 0px auto 0;
+  margin: 0;
   #header_stains{
    #top_stain {
       transform: translateY(65px);
@@ -7,26 +7,29 @@
     }
   }
   .home-page{
+    @media screen and(max-width:1024px) {
+      transform: translateY(-20rem);
+    }
   display: grid;
-  max-width: 1200px;
-  grid-template-columns: 1fr 374px;
+  width: 100%;
+  grid-template-columns: 3fr 1fr;
   overflow: hidden;
-  margin: 0px auto 50px;
-  transform: translateY(36px);
+  margin: 0;
+  transform: translateY(-10rem);
 
-  @media screen and(max-width: 990px) {
-    grid-template-columns: 60px 1fr;
+  @media screen and(max-width: 1024px) {
+    grid-template-columns: 610px 1fr;
     margin: 250px 20px 50px
   }
 
-  @media screen and(max-width: 590px) {
+  @media screen and(max-width: 720px) {
     grid-template-columns: 1fr;
     margin: 250px 8px 50px;
   }
 
   .main {
+    margin-left: 1rem;
     .home-header {
-      margin: 0 auto 12px;
       text-align: center;
       
       .connection-form {
@@ -41,61 +44,21 @@
           margin-bottom: 28px;
         
 
-          li {
-            padding: 16px 28px;
-            transition: .2s;
-            margin: 0 8px;
-            color: $color-1;
-          }
-          .active-btn {
-            text-shadow: 1px 2px 0px $black;
-            width: 215px;
-            font-size: 1.2em;
-            background-image: url('../assets/img/brush_btn2_inactive2.png');
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            background-position-x: 3px;
-            background-position-y: 0px;
-  
-        
-          }
-          li:not(.active-btn) {
-            width: 155px;
-            cursor: pointer;
-            padding: 16px 28px;
-            background-image: url('../assets/img/brush_btn1.png');
-            background-repeat: no-repeat;
-            background-size: 100%;
-            background-position-x: 8px;
-            background-position-y: 5px;
-            &:hover {
-              text-shadow: 1px 2px 0px $color-4;
-              color: $color-3;
-              background-image: url('../assets/img/brush_btn1_hover.png');
-              background-repeat: no-repeat;
-              background-size: 100%;
-              background-position-x: 8px;
-              background-position-y: 5px;
-              }
-            
-          }
+          
         }
         form {
           label{
             font-size: 1.6em;
             text-shadow: 2px 3px 0px $color-1;
           }
-          #email, #password {
-
-            padding: 10px;
-
-            font-size: 1.4rem;
+          #email, #password, #pseudo, #password-conf {
+            width: 50vw;
+             padding: 0.8rem 0;
+            font-size: 1.3rem;
             font-family: $font-2;
             
           }
-          #password {
-            font-size: 2rem;
-          }
+
            #terms{
           position:relative;
           right: 8px;
@@ -116,11 +79,12 @@
         }
         }
           input[type=submit] {
-            margin-top: 20px;
-            padding: 0;
-            
+            margin-top: 1rem;
+            padding-bottom: 0.2rem;
+            text-shadow: 2px 3px 0px $color-1;
             cursor: pointer;
             font-family: $font-3;
+            padding: 0.6rem 0;
             font-size: 1.6em;
           }
         }
@@ -128,18 +92,19 @@
     }
   }
   .right-side {
-    position: relative;
     width: 100%;
-    margin: 48px 0 0 14px;
+    margin: 13rem 1rem 0 1rem;
+    position: -webkit-sticky;
+    
+    @media screen and(max-width:1024px) {
+      width: 60%;
+    }
 
     @media screen and(max-width: 990px) {
       display: none;
     }
   
-    .right-side-container {
-      position: fixed;
     
-    }
   }
 }
 }

@@ -33,33 +33,41 @@ const EditDeleteComment = ({comment, postId}) => {
     return (
       <div className="edit-comment">
         {isAuthor && edit === false && (
-          <span onClick={() => setEdit(!edit)}>
-            <img src="./img/icons/edit.svg" alt="edit-comment" />
-          </span>
+          <button onClick={() => setEdit(!edit)} className="edit-comment-btn">
+         Modifier   
+          </button>
         )}
         {isAuthor && edit && (
           <form action="" onSubmit={handleEdit} className="edit-comment-form">
-            <label htmlFor="text" onClick={() => setEdit(!edit)}>
-              Modifie
-            </label>
-            <br />
-            <input
-              type="text"
-              name="text"
-              onChange={(e) => setText(e.target.value)}
-            />
-            <br />
+            <div className="edit-area">
+              <textarea
+              row="20"
+              className="update-comment-area"
+                type="text"
+                name="text"
+                onChange={(e) => setText(e.target.value)}
+                defaultValue={comment.text}
+              ></textarea>
+              <label htmlFor="text" onClick={() => setEdit(!edit)}>
+                X
+              </label>
+            </div>
             <div className="btn">
-              <span
+              <button
+                className="trash-comment-btn"
                 onClick={() => {
                   if (window.confirm("C'est un projet sûr????")) {
                     handleDelete();
                   }
                 }}
               >
-                <img src="./img/icons/trash.svg" alt="delete" />
-              </span>
-              <input type="submit" value="Comme Hifi, vérifie" />
+                Supprime
+              </button>
+              <input
+                type="submit"
+                value="modifie"
+                className="update-comment-btn"
+              />
             </div>
           </form>
         )}

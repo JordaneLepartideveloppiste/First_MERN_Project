@@ -35,7 +35,7 @@ const LikeButton = ({post}) => {
             position={["bottom center", "bottom right", "bottom left"]}
             closeOnDocumentClick
           >
-            <div>Connecte-toi Enfoiré!</div>
+            <div>connecte-toi tu pourras</div>
           </Popup>
         )}
         {uid && liked === false && (

@@ -33,7 +33,10 @@ app.get('/jwtid', requireAuth, (req, res) => {
 app.use('/api/user', userRoutes);
 app.use('/api/post', postRoutes);
 
-
+// 404
+app.all('/*', (req, res) => {
+  res.status(404).json({ message: "Page not found !" });
+})
 
 
 

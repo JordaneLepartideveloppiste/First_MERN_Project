@@ -25,7 +25,7 @@ module.exports.createPost = async (req, res) => {
         )
           throw Error("invalid file");
         
-      if ( req.file.size > 500000) throw Error("max size");
+      if ( req.file.size > 50000000) throw Error("max size");
 
     } catch (err){
         const errors = uploadErrors(err);
@@ -187,19 +187,21 @@ module.exports.editCommentPost = (req, res) => {
       return res
         .status(400)
         .send("What kind of Id :" + req.params.id + " ?");
+        console.log(req.body.text);
     
     try{
-        return PostModel.findById(
+       return PostModel.findById(
             req.params.id,
+            
             (err, docs) => {
-              console.log(req.body.commentId);
-              console.log(req.params.id);
+  
                 const theComment = docs.comments.find((comment) => 
                   comment._id.equals(req.body.commentId)
                 );
-                console.log(docs.comments);
+                
                 if (!theComment) return res.status(404).send('Comment Not found')
                 theComment.text = req.body.text;
+          
 
                 return docs.save((err) => {
                     if (!err) return res.status(200).send(docs);

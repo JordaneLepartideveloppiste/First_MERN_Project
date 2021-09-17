@@ -9,8 +9,7 @@ const Trends = () => {
     const usersData = useSelector((state) => state.usersReducer);
     const trendList = useSelector((state) => state.trendingReducer)
     const dispatch = useDispatch();
-    const [img, setImg] = useState("./img/read.png");
-    const [span, setSpan] = useState("Lire");
+ 
 
     useEffect(() => {
         if (!isEmpty(posts[0])) {
@@ -27,7 +26,7 @@ const Trends = () => {
 
     return (
         <div className="trending-container">
-            <h4>Le titre du moment</h4>
+            <h4>L'œuvre du moment</h4>
             <NavLink exact to="/trending">
                 <ul>
                     {trendList.length &&
@@ -79,7 +78,9 @@ const Trends = () => {
                                 </div>
                                 <div className="trend-content">
                                   <p>{post.message}</p>
-                                  <div className="read-stain"
+                                  {/*    const [img, setImg] = useState("./img/read.png");
+                                      const [span, setSpan] = useState("Lire");
+                                      <div className="read-stain"
                                   onMouseEnter={() => {setImg("./img/play_hover.png"); setSpan('');}}
                                   onMouseLeave={() => {setImg("./img/read.png"); setSpan('Lire');}}>
                                     <img
@@ -88,7 +89,7 @@ const Trends = () => {
                                       id="play_stain"
                                     />
                                     <span>{span}</span>
-                                  </div>
+                                  </div> */}
                                 </div>
                               </li>
                             );

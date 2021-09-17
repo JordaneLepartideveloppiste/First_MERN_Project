@@ -3,9 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { followUser, unfollowUser } from '../../actions/user.actions';
 import { isEmpty } from '../Utils';
 
+
 const FollowHandler = ({idToFollow, type}) => {
     const userData = useSelector((state) => state.userReducer);
+
     const [isFollowed, setIsFollowed] = useState(false);
+    const [checked, setChecked] = useState('./img/icons/checked.png')
+    const [toCheck, setToCheck] = useState('./img/icons/checked_hover.png')
     const dispatch = useDispatch();
 
     const handleFollow = () => {
@@ -28,22 +32,38 @@ const FollowHandler = ({idToFollow, type}) => {
     return (
       <>
         {isFollowed && !isEmpty(userData) && (
-          <span onClick={handleUnfollow}>
+          <span onClick={handleUnfollow} 
+          onMouseEnter={() => {setChecked('./img/icons/checked_hover.png')}} 
+          onMouseLeave={() => {setChecked('./img/icons/checked.png')}} 
+          className="follow-unfollow-btn">
             {type === "suggestion" && (
-              <button className="unfollow-btn">Abonné</button>
+              <button className="unfollow-btn">Ajouté</button>
             )}
             {type === "card" && (
-              <img src="./img/icons/checked.svg" alt="checked" />
+              <img
+                src={checked}
+                alt="checked"
+                className="check-pic"
+                width={28}
+                height={28}
+              />
             )}
           </span>
         )}
         {isFollowed === false && !isEmpty(userData) && (
-          <span onClick={handleFollow}>
+          <span onClick={handleFollow} 
+          onMouseEnter={() => {setToCheck('./img/icons/tocheck_hover.png')}} 
+          onMouseLeave={() => {setToCheck('./img/icons/tocheck.png')}} 
+          className="follow-unfollow-btn">
             {type === "suggestion" && (
               <button className="follow-btn">Suivre</button>
             )}
             {type === "card" && (
-              <img src="./img/icons/check.svg" alt="check" />
+              <img
+                src={toCheck}
+                alt="to-check"
+                className="check-pic"
+              />
             )}
           </span>
         )}

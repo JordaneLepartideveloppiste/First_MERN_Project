@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import Loader from '../Loader';
 import { isEmpty } from '../Utils';
 import FollowHandler from './FollowHandler';
 
@@ -48,21 +49,30 @@ const FriendsHint = () => {
         <div className="get-friends-container">
             <h4>Suggestions</h4>
             {isLoading ? (
-                    <div className="icon">
-                        <i className="fas fa-spinner fa-pulse"></i>
-                    </div>
+                    <Loader />
                 ) : (
                     <ul>
-                        {friendHint && friendHint.map((user) => {
+                        {friendHint && friendHint.map((user, index) => {
                             for (let i = 0; i < usersData.length; i ++) {
                                 if (user === usersData[i]._id) {
                                     return (
-                                        <li className="user-hint">
-                                            <img src={usersData[i].picture} alt="user-pic"/>
-                                            <p>{usersData[i].pseudo}</p>
-                                            <FollowHandler idToFollow={usersData[i]._id} type={"suggestion"} />
-                                        </li>
-                                    )
+                                      <li className="user-hint" key={index}>
+                                        <img
+                                          src={usersData[i].picture}
+                                          alt="user-pic"
+                                        />
+                                        <img
+                                          src="./img/cadre_brush_orange.png"
+                                          alt="cadre"
+                                          className="border-hint"
+                                        />
+                                        <p>{usersData[i].pseudo}</p>
+                                        <FollowHandler
+                                          idToFollow={usersData[i]._id}
+                                          type={"suggestion"}
+                                        />
+                                      </li>
+                                    );
                                  }
                             }
                         } 

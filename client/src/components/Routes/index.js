@@ -4,6 +4,7 @@ import Home from '../../pages/Home';
 import Trending from '../../pages/Trending';
 import Profil from '../../pages/Profil';
 import Navbar from '../Navbar';
+import NotFound from '../../pages/NotFound';
 
 const index = () => {
     return (
@@ -14,6 +15,7 @@ const index = () => {
             <Route path="/" exact component={Home} />
             <Route path="/trending" exact component={Trending} />
             <Route path="/profil" exact component={Profil} />
+            <Route path="/*" component={NotFound} />
             <Redirect to="/" />
           </Switch>
         </Router>

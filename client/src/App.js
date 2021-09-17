@@ -17,10 +17,9 @@ const App = () => {
         withCredentials: true,
       })
         .then((res) => {
-          console.log("Et voilà " + res.data);
           setUid(res.data);
         })
-        .catch((err) => console.log("Dans ton token!"));
+        .catch((err) => console.log("Token error!"));
     };
     fetchToken();
     if (uid) dispatch(getUser(uid));

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { UidContext } from "./AppContext";
 import Login from './Log/Login';
 import LogOut from './Log/LogOut';
+import stain from "../styles/assets/img/logo_les_artistes.png";
 
 
 const Navbar = () => {
@@ -16,8 +17,8 @@ const Navbar = () => {
           <div className="logo">
             <NavLink exact to="/">
               <div className="logo">
-                <img src="./img/balance_orange.png" alt="icone" />
-                <h3>BALANCE</h3>
+                <img src={stain} alt="icone" />
+                <h3>LES ARTISTES</h3>
               </div>
             </NavLink>
           </div>

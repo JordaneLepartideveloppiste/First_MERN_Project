@@ -122,6 +122,7 @@ export const addComment = (postId, commenterId, text, commenterPseudo) => {
 }
 
 export const editComment = (postId, commentId, text) => {
+
     return (dispatch) => {
       return axios({
         method: "patch",

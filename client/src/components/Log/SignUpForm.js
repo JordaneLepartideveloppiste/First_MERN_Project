@@ -31,7 +31,7 @@ const SignUpForm = () => {
                 method:"post",
                 url: `http://localhost:5000/api/user/register`,
                 data: {
-                    pseudo,
+                    pseudo: pseudo.toUpperCase(),
                     email,
                     password
                 }

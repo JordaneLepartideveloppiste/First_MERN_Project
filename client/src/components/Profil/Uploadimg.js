@@ -1,26 +1,15 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { uploadPicture } from '../../actions/user.actions'
 
-const Uploadimg = () => {
-  const [file, setFile]=useState();  
-  const dispatch = useDispatch();
-  const userData = useSelector((state) => state.userReducer);
 
-  const handlePicture = (e) => {
-    e.preventDefault();
-    const data = new FormData();
-    data.append("name", userData.pseudo);
-    data.append("userId", userData._id);
-    data.append("file", file);
+const Uploadimg = ({label, handlePicture, setFile}) => {
+ 
 
-    dispatch(uploadPicture(data, userData._id));
-
-  };
+  
 
   return (
     <form action="" onSubmit={handlePicture} className="upload-pic">
-      <label htmlFor="file">Change de tête</label>
+      <label htmlFor="file">{label}</label>
       <input
         type="file"
         id="file"
@@ -29,7 +18,7 @@ const Uploadimg = () => {
         onChange={(e) => setFile(e.target.files[0])}
       />
       <br/>
-      <input type="submit" value="Azy balance nous ça"/>
+      <input type="submit" value="Vas-y"/>
     </form>
   );
 };

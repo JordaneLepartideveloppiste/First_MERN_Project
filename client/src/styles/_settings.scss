@@ -44,14 +44,8 @@ $shadow: rgb(219, 218, 218);
   text-decoration: none;
 
   &::selection {
-    background: $color-1;
-    
-  }
-  
-      
-      
-}
-
+    background: $white; 
+  }      
 
 a,
 a:visited {
@@ -66,35 +60,32 @@ textarea {
   resize: none;
   overflow: auto;
   width: 320px;
-  height: 56px;
   color: $color-3;
   font-family: $font-2;
   
 }
 
+
 input[type="text"], input[type="password"]{
+  font-size: 1.4rem;
   text-align: center;
   width: 400px;
   background-color: transparent;
   background-image: url('./assets/img/brush_input.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  outline: none;
 
   &:focus {
-    outline: none;
     background-image: url('./assets/img/brush_input_focus.png');
   }
 }
 
 textarea{
-  color: $color-3;
-  text-align: center;
+  color: $color-1;
+  font-size: 1rem;
   background-color: transparent;
-  
-
-  &:focus {
-    outline: none;
-  }
+  outline: none;
 }
 
 button,
@@ -102,49 +93,130 @@ input[type="submit"] {
   background-color: transparent;
   background-image: url('./assets/img/brush_btn_submit.png');
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
   color: $color-3;
   font-family: $font-3;
   cursor: pointer;
-  transition: 0.2s;
   margin: 0;
-  padding: 10px 20px;
   font-size: 1.1rem;
-  text-shadow: 2px 3px 0px $color-1;
+  text-shadow: 1px 2px 0px $color-1;
 
   &:hover {
     background-image: url('./assets/img/brush_btn_submit_hover.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
     color: $color-3;
-    text-shadow: 2px 3px 0px $color-4;
+    text-shadow: 1px 2px 0px $color-4;
   }
 }
+
+#back-home {
+  background-image: url('./assets/img/player_bg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: $color-3;
+  text-shadow: 1px 2px 0px $color-4;
+
+  &:hover {
+    color: $color-1;
+    text-shadow: 1px 2px 0px $black;
+  }
+}
+
+
 input[type="checkbox"] {
   box-shadow: none;
   width: 20px;
   margin: 10px 0;
 }
-i {
-  transition: 0.15s;
 
-  &:hover {
-    transform: scale(1.1);
-  }
+input[type="file"] {
+  opacity: 0;
 }
+
 body {
   font-family: $font-3;
   line-height: 1.4rem;
   background: $white;
   color: $color-3;
+}
 
-  
-}
 .error {
-  color: red;
+  color: rgb(166, 57, 57);
   font-weight: bold;
 }
+
 .success {
-  color: green;
+  color: rgb(22, 122, 22);
   font-weight: bold;
+}
+
+.loader-page {
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+
+  .loader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .loader_content {
+      opacity: 0.85;
+      width: 50px;
+      height: 50px;
+
+    } 
+    .content1 {
+      background-color: transparent;
+      background-image: url('./assets/img/stain_scroll.png');
+      background-repeat: no-repeat;
+      background-size: 100% 90%;
+      position: relative;
+      top: 9rem;
+      left: 2rem;
+    }
+    .content2 {
+      background-color: transparent;
+      background-image: url('./assets/img/stain_orange_1.png');
+      background-repeat: no-repeat;
+      background-size: 100% 90%;
+      position: relative;
+      top: 10rem;
+      left: 7rem;
+     
+    }
+    .content3 {
+      background-color: transparent;
+      background-image: url('./assets/img/stain_grey_3.png');
+      background-repeat: no-repeat;
+      background-size: 100% 90%;
+      position: relative;
+      top: 0rem;
+      left: -2rem;
+    }
+    .content4 {
+      background-color: transparent;
+      background-image: url('./assets/img/stain_orange_3.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: relative;
+      top: -7rem;
+      left: -3rem;
+    }
+    .content5 {
+      background-color: transparent;
+      background-image: url('./assets/img/stain_lil_btn_hover.png');
+      background-repeat: no-repeat;
+      background-size: 100% 90%;
+      position: relative;
+      top: 12rem;
+      left: -3rem;
+    }
+    
+  }
+}
+  
 }

@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { addPost, getPosts } from '../../actions/post.actions';
 import { isEmpty, timestampParser } from '../Utils';
+import tof from "../../styles/assets/img/photo_btn.png";
+import pen from "../../styles/assets/img/pen_thumb_orange.png";
+import border from "../../styles/assets/img/cadre_brush.png";
+import Loader from '../Loader';
+
 
 const NewPostForm = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState(false);
     const[postPicture, setPostPicture] = useState(null);
     const [video, setVideo] = useState('');
     const [file, setFile] = useState();
@@ -14,7 +20,8 @@ const NewPostForm = () => {
     const error = useSelector((state) => state.errorReducer.postError);
     const dispatch = useDispatch();
 
-    const handlePost = async () => {
+    const handlePost = async (e) => {
+      e.preventDefault();
         if (message || postPicture || video) {
             const data = new FormData();
             data.append('posterId', userData._id);
@@ -27,15 +34,21 @@ const NewPostForm = () => {
             cancelPost();
 
         } else {
-            alert("Où as-tu vu qu'on envoyait des messages vides???")
+            setErrorMessage(true);
         }
     };
 
     const handlePicture = (e) => {
         setPostPicture(URL.createObjectURL(e.target.files[0]));
         setFile(e.target.files[0]);
+        setErrorMessage(false);
         setVideo('');
     };
+
+    const handleChange = (e) => {
+      setErrorMessage(false);
+      setMessage(e.target.value);
+    }
     
     
 
@@ -44,6 +57,7 @@ const NewPostForm = () => {
         setPostPicture('');
         setVideo('');
         setFile('');
+        setErrorMessage(false);
     };
 
     useEffect(() => {
@@ -73,104 +87,149 @@ const NewPostForm = () => {
     return (
       <div className="post-container">
         {isLoading ? (
-          <i className="fas fa-spinner fa-pulse"></i>
+          <Loader />
         ) : (
           <>
-            <div className="data">
-              <p>
-                <span>
-                  {userData.following ? userData.following.length : "0"}
-                </span>{" "}
-                Abonnement
-                {userData.following && userData.following.length > 1
-                  ? "s"
-                  : null}
-              </p>
-              <p>
-                <span>
-                  {userData.followers ? userData.followers.length : "0"}
-                </span>{" "}
-                Abonné
-                {userData.following && userData.following.length > 1
-                  ? "s"
-                  : null}
-              </p>
-            </div>
             <NavLink exact to="/profil">
               <div className="user-info">
-                <img src={userData.picture} alt="user-img" />
+                <img src={userData.picture} alt="" />
+                <img
+                  src="./img/cadre_brush_orange.png"
+                  alt="cadre"
+                  className="profil-post-border"
+                />
               </div>
             </NavLink>
-            <div className="post-form">
-              <textarea
-                name="message"
-                id="message"
-                placeholder="What's Up? Du nouveau???"
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-              />
-              {message || postPicture || video.length > 20 ? (
-                <li className="card-container">
-                  <div className="card-left">
-                    <img src={userData.picture} alt="user-pic" />
+            <div className="border-post">
+              <div className="new-post">
+                <div className="right-part-post"></div>
+                <div className="left-part-post">
+                  <div className="follow-counters">
+                    <p>
+                      <span>
+                        {userData.following ? userData.following.length : "0"}
+                      </span>{" "}
+                      Abonnement
+                      {userData.following && userData.following.length > 1
+                        ? "s"
+                        : null}
+                    </p>
+                    <p>
+                      <span>
+                        {userData.followers ? userData.followers.length : "0"}
+                      </span>{" "}
+                      Abonné
+                      {userData.followers && userData.followers.length > 1
+                        ? "s"
+                        : null}
+                    </p>
                   </div>
-                  <div className="card-right">
-                    <div className="card-header">
-                      <div className="pseudo">
-                        <h3>{userData.pseudo}</h3>
+                  <div className="post-title">
+                    <h3>
+                      Vas-y <span id="pseudo">{userData.pseudo}</span>, prends
+                      ton pinceau et exprime-toi !
+                    </h3>
+                  </div>
+                  <div className="new-post-area">
+                    <div className="post-form">
+                      <img src={pen} alt="icon" id="pen-new-post" />
+                      <textarea
+                        name="message"
+                        id="message"
+                        placeholder="Tache d'être explicite..."
+                        onChange={handleChange}
+                        value={message}
+                      />
+                      <div className="icon">
+                        {isEmpty(video) && (
+                          <>
+                            <label htmlFor="file">
+                              <img src={tof} alt="img" />
+                            </label>
+                            <input
+                              type="file"
+                              id="file-upload"
+                              name="file"
+                              accept=".jpg, .jpeg, .png"
+                              onChange={(e) => handlePicture(e)}
+                            />
+                          </>
+                        )}
+                        {video && (
+                          <button onClick={() => setVideo("")}>
+                            Supprimer video
+                          </button>
+                        )}
                       </div>
-                      <span>{timestampParser(Date.now())}</span>
                     </div>
-                    <div className="content">
-                      <p>{message}</p>
-                      <img src={postPicture} alt="" />
+                  </div>
+                </div>
+              </div>
+              <div className="footer-new-post">
+                
+                  <div className="card-container">
+                    <div className="card-content">
+                      {postPicture && (
+                        <>
+                      <img
+                        width="180"
+                        height="180"
+                        src={postPicture}
+                        alt=""
+                        id="thumb-post-picture"
+                      />
+                      <img
+                        width="210"
+                        height="210"
+                        src={border}
+                        alt="border-paint"
+                        id="border-picture"
+                      />
+                      </>
+                      )}
                       {video && (
+                        <>
                         <iframe
-                          width="500"
-                          height="300"
+                          width="300"
+                          height="180"
                           src={video}
                           frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                           title={video}
+                          id="thumb-post-video"
                         ></iframe>
+                        <img
+                        width="340"
+                        height="212"
+                        src={border}
+                        alt="border-paint"
+                        id="border-video"
+                      />
+                      </>
                       )}
                     </div>
                   </div>
-                </li>
-              ) : null}
-              <div className="footer-form">
-                <div className="icon">
-                  {isEmpty(video) && (
-                    <>
-                      <img src="./img/icons/picture.svg" alt="img" />
-                      <input
-                        type="file"
-                        id="file-upload"
-                        name="file"
-                        accept=".jpg, .jpeg, .png"
-                        onChange={(e) => handlePicture(e)}
-                      />
-                    </>
+                <div className="error-messages">
+                  {errorMessage ? (
+                    <p>ça va être compliqué comme ça</p>
+                  ) : (
+                    <p> </p>
                   )}
-                  {video && (
-                    <button onClick={() => setVideo("")}>
-                      Supprimer video
-                    </button>
-                  )}
+                  {!isEmpty(error.format) && <p>{error.format}</p>}
+                  {!isEmpty(error.maxSize) && <p>{error.maxSize}</p>}
                 </div>
-                {!isEmpty(error.format) && <p>{error.format}</p>}
-                {!isEmpty(error.maxSize) && <p>{error.maxSize}</p>}
-                <div className="btn-send">
-                  <div className="send">
-                    {message || postPicture || video.length > 20 ? (
-                      <button className="cancel" onClick={cancelPost}>
-                        Annuler ton message
-                      </button>
-                    ) : null}
-                    <button onClick={handlePost}>Balancer</button>
-                  </div>
-                </div>
+              </div>
+
+              <div className="btn-send">
+                {message || postPicture || video.length > 20 ? (
+                  <button className="cancel" onClick={cancelPost}>
+                    Annuler
+                  </button>
+                ) : null}
+                <button className="send" onClick={handlePost}>
+                  Envoyer
+                </button>
               </div>
             </div>
           </>
