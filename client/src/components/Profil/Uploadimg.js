@@ -18,7 +18,7 @@ const Uploadimg = ({label, handlePicture, setFile}) => {
         onChange={(e) => setFile(e.target.files[0])}
       />
       <br/>
-      <input type="submit" value="Vas-y"/>
+      <input type="submit" value="OK"/>
     </form>
   );
 };

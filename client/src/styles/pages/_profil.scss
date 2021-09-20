@@ -208,6 +208,11 @@
           @media screen and(max-width:720px) {
             transform: translate(1rem, -5rem);
           }
+          @media screen and(max-width:640px) {
+            transform: translate(1rem, -5.5rem);
+            height: 120px;
+     
+          }
           height: 150px;
           width: 150px;
           border-radius: 6px;
@@ -228,6 +233,9 @@
               padding: 1.2rem 1rem;
               transform: translate(3rem, -0.8rem);
             }
+            @media screen and(max-width:640px) {
+              transform: translate(5rem, -0.8rem);
+            }
             background-image: url("../assets/img/brush_btn2_inactive2.png");
             background-repeat: no-repeat;
             background-size: 99% 88%;
@@ -245,6 +253,10 @@
               transform: translate(7.5rem, -5rem);
             
             }
+            @media screen and(max-width:640px) {
+              transform: translate(9.5rem, -5rem);
+            
+            }
             opacity: 0;
             transform: translate(1rem, -100%);
             cursor: pointer;
@@ -258,6 +270,11 @@
             }
             @media screen and(max-width:720px) {
               transform: translate(18rem, -8rem);
+              width: 16vw;
+              padding: 0.8rem;
+            }
+            @media screen and(max-width:640px) {
+              transform: translate(15rem, -8rem);
               width: 16vw;
               padding: 0.8rem;
             }
@@ -464,6 +481,9 @@
         }
       }
       .get-friends-container {
+        @media screen and(max-width:640px) {
+                padding-left: 0rem; 
+                }
         width: 95vw;
         margin-left: 1rem;
         background: transparent;
@@ -484,6 +504,10 @@
             transform: translateY(-1rem);
 
             .user-hint {
+             @media screen and(max-width:640px) {
+               
+                margin-right: 2rem;
+                }
             width: 40vw;
             margin: 0 1rem;
 
@@ -492,7 +516,7 @@
             }
             
             .border-hint {
-              transform: translateX(-3.2rem);
+              transform: translateX(-3.15rem);
             }
             p {
               width: 15vw;

@@ -265,7 +265,7 @@ const Card = ({post}) => {
                   )}
                 </div>
               </div>
-              {!isUpdated ? (
+              {uid ? (
                 <>
               <div className="card-footer" style={{ marginBottom: "120" }}>
                 <div
@@ -319,7 +319,7 @@ const Card = ({post}) => {
                 )}
               </div>
               </>
-              ) :  (<div></div>)}
+              ) :  null}
 
             </>
           )}
