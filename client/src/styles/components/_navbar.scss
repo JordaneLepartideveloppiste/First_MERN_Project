@@ -6,9 +6,10 @@ nav {
   z-index: 10;
   top: 0;
   background: $white;
+  padding: 0 20px;
 
-  @media screen and(max-width: 1251px) {
-    padding: 0 20px;
+  @media screen and(max-width: 720px) {
+    padding: 0;
   }
 
   &::after {
@@ -24,19 +25,29 @@ nav {
   }
 
   .nav-container {
+    @media screen and(max-width:720px) {
+         justify-content: center; 
+        }
     display: flex;
     width: 100%;
-    max-width: 1190px;
     margin: 0 auto;
     justify-content: space-around;
     height: 45px;
-    align-items: right;
+    align-items: center;
     
     .logo {
+      
+      @media screen and(max-width:720px) {
+          transform: translateX(-3.5rem);
+        }
       display: flex;
       align-items: center;
       
       h3 {
+        @media screen and(max-width:720px) {
+        transform: translate(15px, 12px);
+        font-size: 2rem;
+      }
         transform: translate(15px, 12px);
         font-size: 2.4rem;
         font-family: $font-4;
@@ -44,6 +55,10 @@ nav {
         text-shadow: 2px 3px 0px $color-3;
       }
       img {
+        @media screen and(max-width:720px) {
+          width: 48px;
+        height: 46px;
+        }
         width: 58px;
         height: 56px;
         transform: translateY(0.4rem);
@@ -63,6 +78,9 @@ nav {
         color: $color-3;
         display: flex;
 
+        @media screen and(max-width: 720px) {
+         margin-right: 7rem;
+        }
         @media screen and(max-width: 590px) {
           display: none;
         }
@@ -83,6 +101,11 @@ nav {
           transform: translateY(1px);
         }
         .login_nav{
+          @media screen and(max-width: 720px) {
+         transform: translateX(14rem);
+         width: 16vw;
+        }
+          
           display: flex;
           color: #111111;
           background: $color-1;
@@ -103,7 +126,9 @@ nav {
             width: 40px;
             transform: translate(10px, 2px);
           }
-        }
+          
+        
+      }
         }
         
         .logout_nav{
@@ -127,6 +152,11 @@ nav {
             width: 40px;
             transform: translate(10px,0px);
           }
+          @media screen and(max-width:720px) {
+          span {
+            display: none;
+          }
+        }
       }
       
       li {

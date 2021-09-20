@@ -265,6 +265,8 @@ const Card = ({post}) => {
                   )}
                 </div>
               </div>
+              {!isUpdated ? (
+                <>
               <div className="card-footer" style={{ marginBottom: "120" }}>
                 <div
                   className="comment-icon"
@@ -310,12 +312,15 @@ const Card = ({post}) => {
                     />
                     <input
                       type="submit"
-                      value="Vas-y"
+                      value="Go"
                       className="post-comment-btn"
                     />
                   </form>
                 )}
               </div>
+              </>
+              ) :  (<div></div>)}
+
             </>
           )}
         </li>

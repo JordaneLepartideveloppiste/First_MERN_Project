@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import Uploadimg from './Uploadimg';
 import { updateBio } from '../../actions/user.actions';
 import { dateParser } from '../Utils';
+import FriendsHint from "./FriendsHint";
 import FollowHandler from './FollowHandler';
 import { uploadPicture } from "../../actions/user.actions";
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const UpdateProfil = () => {
     const userData = useSelector((state) => state.userReducer);
@@ -15,6 +17,18 @@ const UpdateProfil = () => {
     const [updateForm, setUpdateForm]= useState(false); 
     const dispatch= useDispatch();
     const [file, setFile] = useState();
+    const [actualWidth, setActualWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const updateActualWidth = () => {
+        let w = window;
+        let width = w.innerWidth;
+        setActualWidth(width);
+      };
+      window.addEventListener("resize", updateActualWidth);
+      updateActualWidth();
+      console.log(actualWidth);
+    }, []);
    
 
 
@@ -32,6 +46,8 @@ const UpdateProfil = () => {
 
       dispatch(uploadPicture(data, userData._id));
     };
+
+  
 
     return (
       <div className="profil-container">
@@ -71,13 +87,13 @@ const UpdateProfil = () => {
                 ></textarea>
                 <button onClick={handleUpdate}>Valider</button>
                 <Link to="/">
-                  <button>Retour à l'accueil</button>
+                  <button id="back-home">Retour à l'accueil</button>
                 </Link>
               </div>
             )}
           </div>
           <div className="right-part">
-            <h4>
+            <h4 className="since">
               Pilote dans notre écurie depuis le{" "}
               {dateParser(userData.createdAt)}
             </h4>
@@ -102,13 +118,17 @@ const UpdateProfil = () => {
                       if (user._id === userData.followers[i]) {
                         return (
                           <li key={user._id}>
-                            <img src={user.picture} alt="user-pic" className="user-profil-pic"/>
+                            <img
+                              src={user.picture}
+                              alt="user-pic"
+                              className="user-profil-pic"
+                            />
                             <img
                               src="./img/cadre_brush.png"
                               alt="cadre"
                               className="cadre"
                             />
-                            <h4>{user.pseudo}</h4>
+                            <h4 className="pseudo-follow">{user.pseudo}</h4>
                             <div className="follow-handler">
                               <FollowHandler
                                 idToFollow={user._id}
@@ -154,7 +174,7 @@ const UpdateProfil = () => {
                               alt="cadre"
                               className="cadre"
                             />
-                            <h4>{user.pseudo}</h4>
+                            <h4 className="pseudo-follow">{user.pseudo}</h4>
                             <div className="follow-handler">
                               <FollowHandler
                                 idToFollow={user._id}
@@ -171,6 +191,7 @@ const UpdateProfil = () => {
               </div>
             </div>
           </div>
+          {actualWidth < 721 ? <FriendsHint /> : null}
         </div>
         {/* {followingPopUp && (
           <div className="popup-profil-container">

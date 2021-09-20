@@ -9,7 +9,7 @@ const FollowHandler = ({idToFollow, type}) => {
 
     const [isFollowed, setIsFollowed] = useState(false);
     const [checked, setChecked] = useState('./img/icons/checked.png')
-    const [toCheck, setToCheck] = useState('./img/icons/checked_hover.png')
+    const [toCheck, setToCheck] = useState('./img/icons/tocheck.png')
     const dispatch = useDispatch();
 
     const handleFollow = () => {

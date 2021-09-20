@@ -80,14 +80,19 @@
         margin-left: 18px;
         width: 45vw;
       }
+      @media screen and(max-width: 720px) {
+        margin-left: 18px;
+        width: 80vw;
+      }
+      
       .card-header {
         display: flex;
         justify-content: space-between;
         margin: 12px 0 24px;
         min-height: 32px;
 
-        @media screen and(max-width: 590px) {
-          margin: 12px 0 14px;
+        @media screen and(max-width: 720px) {
+  
         }
 
         @media screen and(max-width: 440px) {
@@ -101,8 +106,8 @@
           transform: translateY(15px);
           text-shadow: 2px 2px 0px $color-1;
 
-          @media screen and(max-width: 590px) {
-            margin-left: 52px;
+          @media screen and(max-width: 720px) {
+            margin-left: -0.5rem;
           }
           @media screen and(max-width: 440px) {
             transform: translateY(-18px);
@@ -116,17 +121,16 @@
             }
 
             img {
-              padding: 5px;
-              
-              transition: 0.15s;
+              background-image: url("../assets/img/stain_lil_btn.png");
+          background-repeat: no-repeat;
+          background-size: 105% 105%;
+              background-position: -0.1rem -0.1rem;
+              padding: 0.3rem;
               box-shadow: none;
-              height: 32px;
-              width: 32px;
-              transform: translate(6px, -14px);
+              height: 28px;
+              width: 28px;
+              transform: translate(1rem, -1rem);
 
-              &:hover {
-                transform: scale(1.2) translate(0px, 0px);
-              }
             }
 
             .far {
@@ -236,6 +240,10 @@
           width: 55vw;
           transform: translate(-5rem, -1.5rem);
         }
+        @media screen and(max-width:720px) {
+          width: 90vw;
+          transform: translate(-4rem, -1.5rem);
+        }
         #brush-text {
           width: 100%;
           height: 290px;
@@ -275,6 +283,11 @@
         @media screen and(max-width:1024px) {
           transform: translate(10.4rem, -28rem);
         }
+        @media screen and(max-width:720px) {
+          transform: translate(23rem, -27rem);
+          width: 190px;
+        height: 174px;
+        }
         width: 146px;
         height: 130px;
         z-index: 3;
@@ -284,6 +297,11 @@
       .post-picture {
         @media screen and(max-width:1024px) {
           transform: translate(11rem, -19.5rem);
+        }
+        @media screen and(max-width:720px) {
+          transform: translate(23.5rem, -15.6rem);
+          width: 170px;
+          height: 170px;
         }
         z-index: 0;
         width: 127px;
@@ -300,6 +318,9 @@
       .update-border {
         @media screen and(max-width:1024px) {
           transform: translate(-0.5rem, -31.5rem);
+        }
+        @media screen and(max-width:720px) {
+          transform: translate(-0.5rem, -8rem);
         }
         width: 146px;
         height: 130px;
@@ -348,6 +369,9 @@
           @media screen and(max-width:1024px) {
               transform: translate(12rem, -37.1rem);
           }
+          @media screen and(max-width:720px) {
+              transform: translate(3rem, -31rem);
+          }
           transform: translate(13.8rem, -26.8rem);
  
 
@@ -355,7 +379,10 @@
         }
         .update-video {
           @media screen and(max-width:1024px) {
-              transform: translate(-18rem, -32rem);
+              transform: translate(-18rem, -22rem);
+          }
+          @media screen and(max-width:720px) {
+              transform: translate(-17.1rem, -34rem);
           }
           transform: translate(16.1rem, -30rem);
         }
@@ -363,11 +390,17 @@
           @media screen and(max-width:1024px) {
             transform: translate(10.8rem, -28rem);
           }
+          @media screen and(max-width:720px) {
+              transform: translate(18.6rem, -30.2rem);
+          }
           transform: translate(29.5rem, -26rem);
         }
         .border-update-card-video {
           @media screen and(max-width:1024px) {
             transform: translate(-4.9rem, -31.5rem);
+          }
+          @media screen and(max-width:720px) {
+            transform: translate(-4rem, -33.5rem);
           }
           transform: translate(29.2rem, -30rem);
         }
@@ -377,8 +410,14 @@
 }
 .card-footer {
   @media screen and(max-width:1024px) {
-    width: 70%;
-    transform: translate(-5rem, -3rem)
+    width: 40%;
+    transform: translate(4.8rem, -3rem);
+    justify-content: space-between;
+  }
+  @media screen and(max-width:720px) {
+    width: 75%;
+    transform: translate(4.2rem, -3rem);
+    justify-content: space-between;
   }
   display: flex;
   width: 80%;
@@ -398,6 +437,7 @@
   .like-container {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     span {
       font-family: $font-3;
@@ -429,6 +469,12 @@
 
   .comment-container,
   .comment-container-client {
+    @media screen and(max-width:1024px) {
+      width: 45vw;
+    }
+    @media screen and(max-width:720px) {
+      width: 75vw;
+    }
     box-sizing: border-box;
     width: 40vw;
     min-height: 30vh;
@@ -436,11 +482,21 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-
     padding: 0 -2rem 0 0;
     margin: 1rem;
     border-radius: 6px;
+
+
+
     .comment-top {
+      @media screen and(max-width: 1024px) {
+        width: 40vw;
+
+          }
+      @media screen and(max-width: 720px) {
+        width: 70vw;
+   
+          }
       display: flex;
       justify-content: flex-start;
       align-items: center;
@@ -451,7 +507,7 @@
         img {
           height: 50px;
           width: 50px;
-          border-radius: 10px;
+          border-radius: 6px;
           box-shadow: 1px 1px 3px 1px rgba(51, 51, 51, 0.192);
           object-fit: cover;
           background-color: #f9f4f7;
@@ -463,6 +519,7 @@
         }
       }
       .right-part {
+        
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -494,6 +551,7 @@
               cursor: pointer;
               margin-left: 0.5rem;
               background-color: transparent;
+              transition: none;
               img {
                 box-shadow: none;
                 width: 15px;
@@ -503,6 +561,12 @@
           }
 
           .date-post {
+            @media screen and(max-width:1024px) {
+              width: 12vw;
+            }
+            @media screen and(max-width:720px) {
+              width: 20vw;
+            }
             width: 10vw;
             font-size: 0.6rem;
             font-style: italic;
@@ -512,6 +576,12 @@
         }
 
         .comment {
+          @media screen and(max-width:1024px) {
+              width: 30vw;
+            }
+          @media screen and(max-width:720px) {
+              width: 50vw;
+            }
           font-family: $font-2;
           width: 25vw;
           min-height: 13vh;
@@ -570,9 +640,7 @@
             display: inline-block;
             font-family: $font-3;
 
-            &:hover {
-              transform: scale(1.05);
-            }
+            
           }
           .update-comment-area {
             padding: 1rem 2rem 5rem 3rem;
@@ -629,6 +697,7 @@
 
   }
   .comment-container {
+    
     background-image: url("../assets/img/brush_btn1.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -642,9 +711,8 @@
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 1rem;
-
-
-  }
+    }
+    
     width: 60vw;
     display: flex;
     justify-content: space-between;
@@ -656,7 +724,12 @@
       width: 50vw;
       margin-top: 2rem;
       margin-right: 0rem;  
+      padding: 1rem 2.8rem;
       }
+      @media screen and(max-width:720px) {
+       width: 85vw; 
+       
+          }
 
       margin-top: 0;
       flex: 3;
@@ -675,6 +748,10 @@
         width: 20vw;
         background-position: 3rem 1rem;
       }
+      @media screen and(max-width:720px) {
+        font-size: 1.2rem;
+        background-position: 2.2rem 1rem;
+      }
       background-image: url("../assets/img/stain_lil_btn.png");
       background-repeat: no-repeat;
       background-size: 60% 70%;
@@ -683,7 +760,6 @@
       flex: 1;
       font-size: 1.5rem;
       border-radius: 6px;
-      transition: 0.2s;
       margin-left: 1rem;
 
       &:hover {
@@ -691,6 +767,9 @@
         padding-left: 1rem;
         width: 20vw;
         background-position: 3rem 1rem;
+      }
+      @media screen and(max-width:720px) {
+        background-position: 2.2rem 1rem;
       }
         background-image: url("../assets/img/stain_lil_btn_hover.png");
         background-repeat: no-repeat;
@@ -702,7 +781,6 @@
     button {
       float: right;
       background: $color-1;
-      transition: 0.2s;
 
       &:hover {
         background: $color-2;

@@ -47,7 +47,7 @@ const FriendsHint = () => {
 
     return (
         <div className="get-friends-container">
-            <h4>Suggestions</h4>
+            <h4 className="newfriend-title">Suggestions</h4>
             {isLoading ? (
                     <Loader />
                 ) : (
@@ -60,6 +60,7 @@ const FriendsHint = () => {
                                         <img
                                           src={usersData[i].picture}
                                           alt="user-pic"
+                                          className="user-pic"
                                         />
                                         <img
                                           src="./img/cadre_brush_orange.png"

@@ -166,29 +166,35 @@ const NewPostForm = () => {
                 </div>
               </div>
               <div className="footer-new-post">
-                
-                  <div className="card-container">
-                    <div className="card-content">
-                      {postPicture && (
-                        <>
-                      <img
-                        width="180"
-                        height="180"
-                        src={postPicture}
-                        alt=""
-                        id="thumb-post-picture"
-                      />
-                      <img
-                        width="210"
-                        height="210"
-                        src={border}
-                        alt="border-paint"
-                        id="border-picture"
-                      />
+                <div className="card-container">
+                  <div className="card-content">
+                    {postPicture && (
+                      <>
+                        <img
+                          width="180"
+                          height="180"
+                          src={postPicture}
+                          alt=""
+                          id="thumb-post-picture"
+                        />
+                        <img
+                          width="210"
+                          height="210"
+                          src={border}
+                          alt="border-paint"
+                          id="border-picture"
+                        />
                       </>
-                      )}
-                      {video && (
-                        <>
+                    )}
+                    {video && (
+                      <>
+                        <img
+                          width="340"
+                          height="212"
+                          src={border}
+                          alt="border-paint"
+                          id="border-video"
+                        />
                         <iframe
                           width="300"
                           height="180"
@@ -199,17 +205,10 @@ const NewPostForm = () => {
                           title={video}
                           id="thumb-post-video"
                         ></iframe>
-                        <img
-                        width="340"
-                        height="212"
-                        src={border}
-                        alt="border-paint"
-                        id="border-video"
-                      />
                       </>
-                      )}
-                    </div>
+                    )}
                   </div>
+                </div>
                 <div className="error-messages">
                   {errorMessage ? (
                     <p>ça va être compliqué comme ça</p>

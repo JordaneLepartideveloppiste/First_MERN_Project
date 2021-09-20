@@ -5,8 +5,13 @@ import UpdateProfil from '../components/Profil/UpdateProfil';
 import HeadStains from '../components/Stains/HeadStains';
 import FootStains from '../components/Stains/FootStains';
 
+
 const Profil = () => {
+  
     const uid = useContext(UidContext);
+
+       
+
     return (
       <div className="profil-complete">
         <HeadStains/>
@@ -18,6 +23,7 @@ const Profil = () => {
               <Log signin={false} signup={true} />
             </div>
           )}
+          
         </div>
 
         <FootStains />

@@ -2,15 +2,13 @@
   @media screen and(max-width:1024px) {
     width: 58vw;
   }
-  max-width: 80vw;
-
+  @media screen and(max-width: 720px) {
+    width: 97.5vw;
+  }
+  width: 68vw;
   background: transparent;
 
-  i {
-    font-size: 1.5rem;
-    margin: 20px 0;
-    color: $color-3;
-  }
+  
 
   .user-info {
     margin-bottom: 10px;
@@ -19,6 +17,11 @@
         height: 9rem;
         width: 9rem;
         transform: translate(-0.2rem, 3.7rem);
+      }
+      @media screen and(max-width:720px) {
+        height: 8rem;
+        width: 8rem;
+        transform: translate(-1.5rem, 3.7rem);
       }
       height: 12rem;
       width: 12rem;
@@ -31,6 +34,11 @@
         height: 10.5rem;
         width: 10.5rem;
         transform: translate(-10rem, 4.5rem);
+      }
+      @media screen and(max-width:720px) {
+        height: 9.4rem;
+        width: 9.4rem;
+        transform: translate(-10.2rem, 4.5rem);
       }
       height: 13rem;
       width: 13rem;
@@ -69,8 +77,8 @@
         .follow-counters {
           text-align: right;
 
-          @media screen and(max-width: 420px) {
-            right: 10px;
+          @media screen and(max-width: 720px) {
+            font-size: 0.9rem;
           }
           @media screen and(max-width: 380px) {
             display: none;
@@ -87,6 +95,9 @@
           align-items: center;
           margin-top: 1rem;
           h3 {
+            @media screen and(max-width: 720px) {
+              font-size: 1.4rem;
+            }
             font-family: $font-2;
             #pseudo {
               font-family: $font-4;
@@ -101,6 +112,9 @@
           justify-content: center;
           align-items: stretch;
           .post-form {
+            @media screen and(max-width: 720px) {
+              margin-bottom: 0;
+            }
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -142,6 +156,9 @@
               }
 
               button {
+                @media screen and(max-width: 720px) {
+              transform: translate(-22.5rem, 20rem);
+            }
                 width: 190px;
                 padding: 10px 20px;
                 transform: translate(-31rem, 8rem);
@@ -176,6 +193,9 @@
             @media screen and(max-width: 1024px) {
               transform: translate(13rem, -3rem);
             }
+            @media screen and(max-width: 720px) {
+              transform: translate(6rem, -1.8rem);
+            }
             margin-top: -2rem;
             transform: translate(18.2rem, -4rem);
           }
@@ -183,20 +203,29 @@
             @media screen and(max-width: 1024px) {
               transform: translate(0.8rem, -2rem);
             }
+            @media screen and(max-width: 720px) {
+              transform: translate(-6.2rem, -1rem);
+            }
             transform: translate(6rem, -3rem);
           }
           #thumb-post-video {
             @media screen and(max-width: 1024px) {
-              transform: translate(6.5rem, -1.4rem);
+              transform: translate(6.5rem, -15rem);
+            }
+            @media screen and(max-width: 720px) {
+              transform: translate(-11rem, -2.5rem);
             }
             margin-top: 0rem;
-            transform: translate(26rem, -4.1rem);
+            transform: translate(3rem, -4.1rem);
           }
           #border-video {
             @media screen and(max-width: 1024px) {
-              transform: translate(6.4rem, -14rem);
+              transform: translate(6.4rem, -2.3rem);
             }
-            transform: translate(6rem, -3rem);
+            @media screen and(max-width: 720px) {
+              transform: translate(9rem, -1.5rem);
+            }
+            transform: translate(23rem, -3rem);
           }
         }
       }
@@ -209,17 +238,26 @@
       }
     }
     .btn-send {
+      @media screen and(max-width: 720px) {
+          margin: 2rem 0 1.5rem;
+        } 
       display: flex;
       justify-content: space-around;
       align-items: center;
       margin-bottom: 1rem;
 
       .cancel {
+        @media screen and(max-width: 720px) {
+          padding: 0.6rem 2rem;
+        }
         padding: 1rem 2rem;
         margin-right: 0.5rem;
         width: 20vw;
       }
       .send {
+        @media screen and(max-width: 720px) {
+          padding: 0.6rem 2rem;
+        }
         width: 20vw;
         padding: 1rem 2rem;
       }
