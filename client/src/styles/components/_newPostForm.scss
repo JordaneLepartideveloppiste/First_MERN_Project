@@ -5,12 +5,20 @@
   @media screen and(max-width: 720px) {
     width: 97.5vw;
   }
+  @media screen and(max-width: 480px) { 
+    width: 90vw;
+    margin: 0 auto;
+   
+  }
   width: 68vw;
   background: transparent;
 
   
 
   .user-info {
+    @media screen and(max-width:1024px) {
+      display: none;
+    }
     margin-bottom: 10px;
     img {
       @media screen and(max-width:1024px) {
@@ -51,7 +59,13 @@
     border: 3px solid $color-1;
     border-radius: 6px;
     min-height: 50vh;
+
+    @media screen and(max-width: 480px) {
+     border: 0px solid $color-1;
+     }
+    
     .new-post {
+      
       padding: 0.5rem 1rem 0rem 1rem;
       background: transparent;
       width: 100%;
@@ -80,7 +94,7 @@
           @media screen and(max-width: 720px) {
             font-size: 0.9rem;
           }
-          @media screen and(max-width: 380px) {
+          @media screen and(max-width: 480px) {
             display: none;
           }
 
@@ -90,6 +104,10 @@
         }
 
         .post-title {
+          @media screen and(max-width: 480px) {
+            margin-top: 1rem;
+            width: 97vw;
+          }
           display: flex;
           justify-content: center;
           align-items: center;
@@ -98,8 +116,14 @@
             @media screen and(max-width: 720px) {
               font-size: 1.4rem;
             }
+            @media screen and(max-width: 480px) {
+            font-size: 1.1rem;
+          }
             font-family: $font-2;
             #pseudo {
+              @media screen and(max-width: 480px) {
+              font-size: 2rem;
+            }
               font-family: $font-4;
               color: $color-1;
             }
@@ -111,9 +135,19 @@
           flex-direction: column;
           justify-content: center;
           align-items: stretch;
+
+       
           .post-form {
             @media screen and(max-width: 720px) {
               margin-bottom: 0;
+            }
+            @media screen and(max-width: 480px) {
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: 88vw;
+              margin-left: -0.5rem;
+            
             }
             display: flex;
             justify-content: space-around;
@@ -121,6 +155,10 @@
             margin-bottom: 1rem;
 
             #pen-new-post {
+              @media screen and(max-width: 480px) {
+                transform: translate(-11.5rem, 5.5rem);
+                width: 2.5vw;
+              }
               width: 1.5vw;
               z-index: 4;
               transform: translateX(4.5rem);
@@ -129,6 +167,9 @@
             textarea {
               @media screen and(max-width:1024px) {
                 font-size: 1.2rem;
+              }
+              @media screen and(max-width:480px) {
+                padding: 1rem 5rem 1rem 3.5rem;
               }
               height: 62px;
               width: 100%;
@@ -142,6 +183,10 @@
               margin-right: 1rem;
             }
             .icon {
+              @media screen and(max-width: 480px) {
+                transform: translateY(1rem);
+     
+              }
               width: 50px;
               height: 50px;
 
@@ -155,9 +200,15 @@
                 transform: translate(-2.5rem, 0.2rem);
               }
 
-              button {
+              .sup-video-btn {
                 @media screen and(max-width: 720px) {
               transform: translate(-22.5rem, 20rem);
+            }
+                @media screen and(max-width: 480px) {
+              transform: translate(-2.5rem, 13rem);
+              width: 28vw;
+              font-size: 0.8rem;
+              padding: 0.6rem 1rem;
             }
                 width: 190px;
                 padding: 10px 20px;
@@ -182,12 +233,16 @@
       }
     }
     .footer-new-post {
+      @media screen and(max-width: 480px) {
+  
+            }
       display: flex;
       justify-content: center;
       width: 100%;
       min-height: 2vh;
 
       .card-container {
+        
         .card-content {
           #thumb-post-picture {
             @media screen and(max-width: 1024px) {
@@ -195,6 +250,9 @@
             }
             @media screen and(max-width: 720px) {
               transform: translate(6rem, -1.8rem);
+            }
+            @media screen and(max-width: 480px) {
+              transform: translate(6.5rem, -5rem);
             }
             margin-top: -2rem;
             transform: translate(18.2rem, -4rem);
@@ -206,6 +264,9 @@
             @media screen and(max-width: 720px) {
               transform: translate(-6.2rem, -1rem);
             }
+            @media screen and(max-width: 480px) {
+              transform: translate(-5.7rem, -4rem);
+            }
             transform: translate(6rem, -3rem);
           }
           #thumb-post-video {
@@ -214,6 +275,9 @@
             }
             @media screen and(max-width: 720px) {
               transform: translate(-11rem, -2.5rem);
+            }
+            @media screen and(max-width: 480px) {
+              transform: translate(3.8rem, -16.5rem);
             }
             margin-top: 0rem;
             transform: translate(3rem, -4.1rem);
@@ -224,6 +288,9 @@
             }
             @media screen and(max-width: 720px) {
               transform: translate(9rem, -1.5rem);
+            }
+            @media screen and(max-width: 480px) {
+              transform: translate(2.6rem, -3.8rem);
             }
             transform: translate(23rem, -3rem);
           }
@@ -241,30 +308,39 @@
       @media screen and(max-width: 720px) {
           margin: 2rem 0 1.5rem;
         } 
+      @media screen and(max-width: 480px) {
+        position: absolute;
+        bottom: -10px;
+        left: 40%;
+
+        } 
       display: flex;
       justify-content: space-around;
       align-items: center;
       margin-bottom: 1rem;
 
       .cancel {
-        @media screen and(max-width: 720px) {
-          padding: 0.6rem 2rem;
-        }
-        padding: 1rem 2rem;
+        
         margin-right: 0.5rem;
-        width: 20vw;
+   
       }
       .send {
+        
+      }
+      button {
         @media screen and(max-width: 720px) {
           padding: 0.6rem 2rem;
         }
+        @media screen and(max-width: 480px) {
+          margin-right: 2rem;
+          padding: 0.6rem 1rem 0.8rem;
+          font-size: 0.8rem;
+        }
         width: 20vw;
         padding: 1rem 2rem;
-      }
-      button {
-        @media screen and(max-width: 460px) {
-          font-size: 0.8rem;
-          padding: 8px;
+        @media screen and(max-width: 480px) {
+          
+          
         }
       }
     }

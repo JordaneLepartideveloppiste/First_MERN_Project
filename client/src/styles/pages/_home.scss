@@ -7,12 +7,27 @@
     }
   }
   #footer_stains {
-    height: 56px;
+    height: 3.8rem;
 
     #bottom_stain {
-      transform: translateY(-130px);
+      transform: translateY(-1rem);
       width: 100%;
     }
+  }
+  .modal-new-post {
+    background: $white;
+    box-shadow: 0px 2px 8px 1px #5b5b5bca;
+    border-radius: 8px;
+    position: absolute;
+    top: 100px;
+    z-index: 1000;
+    width: 90vw;
+    max-height: 80vh;
+    margin: 0 1.5rem;
+    border: 3px solid $color-4;
+    
+    
+
   }
   .home-page{
     @media screen and(max-width:1024px) {
@@ -23,8 +38,13 @@
     @media screen and(max-width: 720px) {
       
       grid-template-columns: 1fr;
-      margin: 250px 0px 50px;
+      margin: 250px 0 50px;
     }
+    @media screen and(max-width: 480px) {
+      transform: translateY(-10rem);
+      margin: 250px 0 0;
+    }
+    
     
   display: grid;
   width: 100%;
@@ -41,9 +61,31 @@
     @media screen and(max-width:720px) {
       margin: 0 0.5rem;
     }
+    @media screen and(max-width:640px) {
+      margin: 0 0.27rem;
+    }
     .home-header {
+      @media screen and(max-width:480px) {
+        z-index: 1000;
+        position: fixed;
+        top: 390px;
+        left: 300px;
+      }
       text-align: center;
 
+      #modal-post-480 {
+        z-index: 1000;
+        position: fixed;
+        top: 390px;
+        left: 300px;
+        padding: 3.2rem 4rem 3rem 3rem;
+        background-color: transparent;
+        background-image: url('../assets/img/stain_middle_grey.png');
+        background-repeat: no-repeat;
+        background-size: 90% 100%;
+        color: $color-1;
+        text-shadow: 1px 2px 1px $black;
+      }
       
       .connection-form {
         background: $color-4;
@@ -116,6 +158,11 @@
           }
         }
       }
+      .thread-container {
+        @media screen and(max-width:480px) {
+          transform: translateY(-9rem);
+        }
+      }
     }
     
   }
@@ -134,5 +181,6 @@
   
     
   }
+  
 }
 }

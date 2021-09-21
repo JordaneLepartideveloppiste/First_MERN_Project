@@ -18,12 +18,8 @@
     display: grid;
     grid-template-columns: 66px 1fr;
 
-    @media screen and(max-width: 590px) {
-      grid-template-columns: 1fr;
-    }
-    @media screen and(max-width: 440px) {
-      padding-top: 26px;
-    }
+    
+   
 
     .fa-spinner {
       position: absolute;
@@ -87,6 +83,10 @@
         margin-left: 18px;
         width: 80vw;
       }
+      @media screen and(max-width: 480px) {
+       
+        width: 75vw;
+      }
       
       .card-header {
         display: flex;
@@ -94,15 +94,15 @@
         margin: 12px 0 24px;
         min-height: 32px;
 
-        @media screen and(max-width: 720px) {
-  
+        @media screen and(max-width: 480px) {
+          transform: translateY(-0.9rem);
         }
 
-        @media screen and(max-width: 440px) {
-          flex-direction: column;
-        }
 
         .pseudo {
+          @media screen and(max-width: 480px) {
+          font-size: 1.6rem;
+        }
           display: flex;
           font-family: $font-4;
           font-size: 2em;
@@ -164,6 +164,10 @@
       width: 70%;
       
     }
+        @media screen and(max-width: 480px) {
+          transform: translate(-0.6rem, -5rem);
+          width: 100%;
+        }
         width: 100%;
         height: 300px;
 
@@ -208,6 +212,11 @@
           height: 390px;
           transform: translate(-5.5rem, 1rem);
     }
+          @media screen and(max-width:480px) {
+      width: 470px;
+          height: 360px;
+          transform: translate(-5.85rem, 1.5rem);
+    }
           z-index: -10;
           width: 600px;
           height: 460px;
@@ -216,7 +225,12 @@
         .message {
           @media screen and(max-width:1024px) {
             width: 380px;
+         
             transform: translate(1rem, -17rem);       
+          }
+          @media screen and(max-width:480px) {
+            width: 300px;
+            transform: translate(-1rem, -16rem);       
           }
 
           z-index: 20;
@@ -228,7 +242,11 @@
 
           p {
             @media screen and(max-width:1024px) {
-              height: 160px;
+              
+              font-size: 1.3rem;
+            }
+            @media screen and(max-width:480px) {
+              
               font-size: 1.3rem;
             }
             padding: 10px 5px;
@@ -299,6 +317,10 @@
           transform: translate(8rem, -13.9rem);
           
         }
+        @media screen and(max-width:640px) {
+          transform: translate(6rem, -15.9rem);
+          
+        }
         width: 146px;
         height: 130px;
         z-index: 3;
@@ -316,6 +338,10 @@
         }
         @media screen and(max-width:640px) {
           transform: translate(8.5rem, -2.5rem);
+          
+        }
+        @media screen and(max-width:480px) {
+          transform: translate(6.6rem, -4.5rem);
           
         }
         z-index: 0;
@@ -390,6 +416,9 @@
           @media screen and(max-width:640px) {
               transform: translate(-10.5rem, -13.5rem);
         }
+          @media screen and(max-width:480px) {
+              transform: translate(5rem, -23.5rem);
+        }
           transform: translate(13.8rem, -26.8rem);
  
 
@@ -413,6 +442,9 @@
           }
           @media screen and(max-width:640px) {
               transform: translate(5.1rem, -12.9rem);
+        }
+          @media screen and(max-width:480px) {
+              transform: translate(3.8rem, -14.4rem);
         }
           transform: translate(29.5rem, -26rem);
         }

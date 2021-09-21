@@ -9,7 +9,7 @@ import border from "../../styles/assets/img/cadre_brush.png";
 import Loader from '../Loader';
 
 
-const NewPostForm = () => {
+const NewPostForm = ({actualWidth, setModalNewPost}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [message, setMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState(false);
@@ -32,6 +32,7 @@ const NewPostForm = () => {
             await dispatch(addPost(data));
             dispatch(getPosts());
             cancelPost();
+            setModalNewPost(false);
 
         } else {
             setErrorMessage(true);
@@ -84,6 +85,8 @@ const NewPostForm = () => {
 
     }, [userData, message, video])
 
+    
+
     return (
       <div className="post-container">
         {isLoading ? (
@@ -125,10 +128,20 @@ const NewPostForm = () => {
                     </p>
                   </div>
                   <div className="post-title">
-                    <h3>
-                      Vas-y <span id="pseudo">{userData.pseudo}</span>, prends
-                      ton pinceau et exprime-toi !
-                    </h3>
+                    {actualWidth < 481 ? (
+                      <h3>
+                        Vas-y{" "}
+                        <NavLink exact to="/profil">
+                          <span id="pseudo">{userData.pseudo}</span>
+                        </NavLink>
+                        , exprime-toi !
+                      </h3>
+                    ) : (
+                      <h3>
+                        Vas-y <span id="pseudo">{userData.pseudo}</span>, prends
+                        ton pinceau et exprime-toi !
+                      </h3>
+                    )}
                   </div>
                   <div className="new-post-area">
                     <div className="post-form">
@@ -156,7 +169,7 @@ const NewPostForm = () => {
                           </>
                         )}
                         {video && (
-                          <button onClick={() => setVideo("")}>
+                          <button className="sup-video-btn" onClick={() => setVideo("")}>
                             Supprimer video
                           </button>
                         )}
