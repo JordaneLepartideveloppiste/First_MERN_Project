@@ -6,15 +6,19 @@
 5. [Bugs Identified](#bugs-identified)
 6. [Evolution](#Evolution)
 7. [Collaboration](#collaboration)
-### **General Info**
+### General Info
 *** 
 My First **MERN** Project is a social network application instagram like. It is a **javascript** full-stack project.
+
 Named "Les Artistes" cause handwriting and ink stain theme.
+
 Responsive breakpoints : 320/480/640/720/1024/1280.
-**Status Project** : Responsive in progress.
+
+####Status Project :
+Responsive in progress.
 ### Technologies
 ***
-![LogoN](https://img.icons8.com/color/48/000000/nodejs.png) ![LogoR](https://img.icons8.com/ultraviolet/16/000000/react--v1.png) ![LogoRx](https://img.icons8.com/color/48/000000/redux.png) ![LogoS](https://img.icons8.com/color/48/000000/sass.png) ![LogoM](https://img.icons8.com/color/48/000000/mongodb.png)
+![LogoN](https://img.icons8.com/color/48/000000/nodejs.png) ![LogoR](https://img.icons8.com/ultraviolet/48/000000/react--v1.png) ![LogoRx](https://img.icons8.com/color/48/000000/redux.png) ![LogoS](https://img.icons8.com/color/48/000000/sass.png) ![LogoM](https://img.icons8.com/color/48/000000/mongodb.png)
 
 * [NodeJs](https://nodejs.org/en/docs/): Version 14.15.1 
 * [Express](https://expressjs.com/en/api.html): Version 4.17.1
