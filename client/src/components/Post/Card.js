@@ -14,13 +14,14 @@ import Uploadimg from '../Profil/Uploadimg';
 import Loader from '../Loader';
 
 
-const Card = ({post}) => {
+const Card = ({post, setBtnNewPost, actualWidth}) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isUpdated, setIsUpdated] = useState(false);
     const [textUpdate, setTextUpdate] = useState(null);
     const [showComments, setShowComments] = useState(false);
      const [text, setText] = useState("");
     const [imgComment, setImgComment] = useState('./img/icons/comments.png');
+    const [imgShare, setImgShare] = useState('./img/icons/share.png');
     const [updateImg, setUpdateImg] = useState(false);
     const [imgBrushText, setImgBrushText] = useState('./img/brush_textarea_user.png');
     const [modalMedia, setModalMedia] = useState(false);
@@ -50,9 +51,20 @@ const Card = ({post}) => {
       }
     };
 
+    const handleClick = () => {
+      setIsUpdated(!isUpdated) 
+      setBtnNewPost(false)
+    }
+
     const handleMedia =() => {
       setModalMedia(true);
     }
+    const handleShowComments =() => {
+      setShowComments(!showComments)
+      setBtnNewPost(false);
+    }
+
+
 
     useEffect(() => {
         !isEmpty(usersData[0]) && setIsLoading(false);
@@ -65,7 +77,13 @@ const Card = ({post}) => {
             <Loader />
           ) : (
             <>
-              <div className="card-container">
+              <div
+                className={
+                  !post.picture && !post.video
+                    ? "card-container light"
+                    : "card-container"
+                }
+              >
                 <div className="card-left">
                   <img
                     src={
@@ -88,7 +106,7 @@ const Card = ({post}) => {
 
                   {userData._id === post.posterId && (
                     <div className="button-container">
-                      <div onClick={() => setIsUpdated(!isUpdated)}>
+                      <div onClick={handleClick}>
                         <img
                           src="./img/icons/marker.png"
                           alt="edit"
@@ -149,7 +167,7 @@ const Card = ({post}) => {
                       />
                       <div className="button-container">
                         <div className="btn" onClick={upDateItem}>
-                          Modifie nous ça !!!
+                          Modifie
                         </div>
                       </div>
                     </div>
@@ -214,11 +232,7 @@ const Card = ({post}) => {
                         onClick={handleMedia}
                       />
                     </>
-                  ) : (
-                    <>
-                      <div className="post-picture"></div>
-                    </>
-                  )}
+                  ) : null}
 
                   {isUpdated && post.video ? (
                     <div className="post-video">
@@ -240,87 +254,101 @@ const Card = ({post}) => {
                         className="update-video"
                       ></iframe>
                     </div>
-                  ) : (
-                    !isUpdated && post.video && (
-                      <div className="post-video">
-                        <img
-                          width="270"
-                          height="150"
-                          src="./img/cadre_brush_orange.png"
-                          alt="cadre"
-                          className="border-card-video"
-                        />
-                        <iframe
-                          width="232"
-                          height="129"
-                          src={post.video}
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          title={post._id}
-                          className="post-video-iframe"
-                        ></iframe>
-                      </div>
-                    )
-                  )}
+                  ) : !isUpdated && post.video ? (
+                    <div className="post-video">
+                      <img
+                        width="270"
+                        height="150"
+                        src="./img/cadre_brush_orange.png"
+                        alt="cadre"
+                        className="border-card-video"
+                      />
+                      <iframe
+                        width="232"
+                        height="129"
+                        src={post.video}
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        title={post._id}
+                        className="post-video-iframe"
+                      ></iframe>
+                    </div>
+                  ) : null}
                 </div>
               </div>
               {uid ? (
-                <>
-              <div className="card-footer" style={{ marginBottom: "120" }}>
-                <div
-                  className="comment-icon"
-                  onMouseEnter={() =>
-                    setImgComment("./img/icons/comments_hover.png")
-                  }
-                  onMouseLeave={() => setImgComment("./img/icons/comments.png")}
-                >
-                  <img
-                    onClick={() => setShowComments(!showComments)}
-                    src={imgComment}
-                    alt="comment"
-                  />
-                  <span>{post.comments.length}</span>
-                </div>
-                <LikeButton post={post} />
-                <Link
-                  to={{
-                    pathname:
-                      "https://www.linkedin.com/in/jordane-lepart-071370189/",
-                  }}
-                  target="_blank"
-                >
-                  <img src="./img/icons/share.svg" alt="share" />
-                </Link>
-              </div>
+                !isUpdated ? (
+                  <>
+                    <div
+                      className="card-footer"
+                      style={{ marginBottom: "120" }}
+                    >
+                      <div
+                        className="comment-icon"
+                        onMouseEnter={() =>
+                          setImgComment("./img/icons/comments_hover.png")
+                        }
+                        onMouseLeave={() =>
+                          setImgComment("./img/icons/comments.png")
+                        }
+                      >
+                        <img
+                          onClick={handleShowComments}
+                          src={imgComment}
+                          alt="comment"
+                        />
+                        <span>{post.comments.length}</span>
+                      </div>
+                      <LikeButton post={post} />
+                      <Link
+                        to={{
+                          pathname:
+                            "https://www.linkedin.com/in/jordane-lepart-071370189/",
+                        }}
+                        target="_blank"
+                        onMouseEnter={() =>
+                          setImgShare("./img/icons/share_hover.png")
+                        }
+                        onMouseLeave={() =>
+                          setImgShare("./img/icons/share.png")
+                        }
+                      >
+                        <img src={imgShare} alt="share" />
+                      </Link>
+                    </div>
 
-              <div className="card-comments">
-                {showComments && <CardComments post={post} />}
-                {userData._id && (
-                  <form
-                    action=""
-                    onSubmit={handleComment}
-                    className="comment-form"
-                  >
-                    <input
-                      type="text"
-                      name="text"
-                      onChange={(e) => setText(e.target.value)}
-                      value={text}
-                      className="post-comment"
-                      placeholder="Réagir..."
-                    />
-                    <input
-                      type="submit"
-                      value="Go"
-                      className="post-comment-btn"
-                    />
-                  </form>
-                )}
-              </div>
-              </>
-              ) :  null}
-
+                    <div className="card-comments">
+                      {showComments && (
+                        <CardComments post={post} actualWidth={actualWidth} />
+                      )}
+                      {userData._id && (
+                        <form
+                          action=""
+                          onSubmit={handleComment}
+                          className="comment-form"
+                        >
+                          <input
+                            type="text"
+                            name="text"
+                            onChange={(e) => setText(e.target.value)}
+                            value={text}
+                            className="post-comment"
+                            placeholder="Réagir..."
+                          />
+                          <input
+                            type="submit"
+                            value="Go"
+                            className="post-comment-btn"
+                          />
+                        </form>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <div className="empty-space"></div>
+                )
+              ) : null}
             </>
           )}
         </li>

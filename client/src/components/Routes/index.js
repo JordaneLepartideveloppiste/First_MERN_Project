@@ -6,6 +6,7 @@ import Profil from '../../pages/Profil';
 import Navbar from '../Navbar';
 import NotFound from '../../pages/NotFound';
 
+
 const index = () => {
     return (
       <div>

@@ -1,6 +1,6 @@
 nav {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   box-shadow: 0px 4px 0px $color-3, 0px 6px 0px $color-1;
   z-index: 10;
@@ -16,7 +16,7 @@ nav {
     height: 60px;
     width: 110%;
     left: -20px;
-    top:0;
+    top: 0;
     position: absolute;
     backdrop-filter: blur(3px);
     background: #111111;
@@ -25,42 +25,44 @@ nav {
 
   .nav-container {
     @media screen and(max-width:720px) {
-         justify-content: center; 
-        }
+      justify-content: center;
+    }
+    @media screen and(max-width:480px) {
+      justify-content: space-between;
+    }
     display: flex;
-    width: 100%;
+    width: 100vw;
     margin: 0 auto;
     justify-content: space-around;
     height: 45px;
     align-items: center;
-    
+
     .logo {
-      
       @media screen and(max-width:720px) {
-          transform: translateX(-3.5rem);
-        }
+        transform: translateX(-3.5rem);
+      }
       @media screen and(max-width:640px) {
-          transform: translateX(-2.5rem);
-        }
+        transform: translateX(-2.5rem);
+      }
       @media screen and(max-width:480px) {
-          transform: translateX(-1.5rem);
-        }
+        transform: translateX(0);
+        margin-left: 2rem;
+      }
       display: flex;
       align-items: center;
-      
+
       h3 {
         @media screen and(max-width:720px) {
-        transform: translate(15px, 12px);
-        font-size: 2rem;
-      }
+          transform: translate(15px, 12px);
+          font-size: 2rem;
+        }
         @media screen and(max-width:640px) {
-        transform: translate(15px, 12px);
-        font-size: 1.8rem;
-      }
-        @media screen and(max-width:480px) {
-        transform: translate(15px, 10px);
-        font-size: 1.6rem;
-      }
+          transform: translate(15px, 12px);
+          font-size: 1.8rem;
+        }
+        @media screen and(max-width: 480px) {
+          display: none;
+        }
         transform: translate(15px, 12px);
         font-size: 2.4rem;
         font-family: $font-4;
@@ -70,148 +72,156 @@ nav {
       img {
         @media screen and(max-width:720px) {
           width: 48px;
-        height: 46px;
+          height: 46px;
         }
         width: 58px;
         height: 56px;
         transform: translateY(0.4rem);
       }
     }
-    
-    ul {
+
+    .nav-content {
+      @media screen and(max-width: 480px) {
+        width: 65vw;
+        transform: translateX(-4rem);
+      }
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 35%;
+      width: 35vw;
       justify-content: space-between;
       font-size: 1.2rem;
-      
+
       .welcome {
         transform: translateY(7px);
         color: $color-3;
         display: flex;
+        justify-content: space-around;
+        align-items: center;
 
         @media screen and(max-width: 720px) {
-         margin-right: 7rem;
+          margin-right: 7rem;
         }
         @media screen and(max-width: 640px) {
-         margin-right: 5rem;
+          margin-right: 5rem;
         }
-        
+        @media screen and(max-width: 480px) {
+          margin-right: 0;
+        }
 
-        h5{
+        h5 {
+          color: $color-1;
+          font-family: $font-4;
           font-size: 1.4em;
           text-shadow: 2px 3px 0px $color-3;
         }
-        
-        h6, h5 {
-          @media screen and(max-width: 480px) {
-         display: none;
-        }
-          font-family: $font-3;
+
+        h6,
+        h5 {
+          
           margin-right: 10px;
         }
 
         h6 {
-          
+          font-family: $font-3;
           color: $color-2;
           transform: translateY(1px);
         }
-        .login_nav{
-          @media screen and(max-width: 720px) {
-         transform: translateX(14rem);
-         width: 16vw;
-        }
-          @media screen and(max-width: 640px) {
-         transform: translateX(10rem);
-         width: 19vw;
-        }
-          @media screen and(max-width: 480px) {
-         transform: translateX(8rem);
-         width: 12vw;
-        }
-          
-          display: flex;
-          color: #111111;
-          background: $color-1;
-          padding: 7px 24px 7px 12px;
-          border: 2px solid $color-3;
-          border-radius: 20px;
-          font-size: 1.1rem;
-
-          &:hover {
-            background: #111111;
-            border: none;
-            color: $color-1;
-            box-shadow: 0 3px 10px $color-1;
-            
-          }
-
-          .arrow_log{
-            @media screen and(max-width: 480px) {
-          transform: translate(-0.2rem, 2px);
-        } 
-            width: 40px;
-            transform: translate(10px, 2px);
-          }
-          @media screen and(max-width:480px) {
-          span {
-            display: none;
-          }
-        }
-        
       }
-        }
-        
-        .logout_nav{
-          @media screen and(max-width: 480px) {
-         transform: translate(3rem, 0.5rem);
-         width: 12vw;
-        }
-          display: flex;
-          color: #111111;
-          background: $color-1;
-          padding: 7px 24px 7px 12px;
-          border: 2px solid $color-3;
-          border-radius: 20px;
-          font-size: 1.1rem;
-          transform: translateY(6px);
 
-          &:hover {
-            background: #111111;
-            border: none;
-            color: $color-1;
-            box-shadow: 0 3px 10px $color-1;
-            
-          }
-          .arrow_logout{
-            @media screen and(max-width: 480px) {
-              transform: translate(-0.2rem,0px);
-            }
-            width: 40px;
-            transform: translate(10px,0px);
-          }
-          @media screen and(max-width:720px) {
-          span {
-            display: none;
-          }
-        }
-      }
       
-      li {
-        
-        img {
-          height: 36px;
-          width: 36px;
-          cursor: pointer;
-          display: grid;
-          align-items: center;
-          justify-items: center;
-          height: 100%;
+    }
+    .nav-content-in {
+      @media screen and(max-width: 480px) {
+        transform: translateX(-4rem);
+      }
+      h5 {
+        margin-top: 0.5rem;
+      }
+      .login_nav {
+        @media screen and(max-width: 720px) {
+          transform: translateX(14rem);
+          width: 16vw;
+        }
+        @media screen and(max-width: 640px) {
+          transform: translateX(10rem);
+          width: 19vw;
+        }
+        @media screen and(max-width: 480px) {
+          transform: translateX(9rem);
+          width: 12vw;
+        }
+
+        display: flex;
+        color: #111111;
+        background: $color-1;
+        padding: 7px 24px 7px 12px;
+        border: 2px solid $color-3;
+        border-radius: 20px;
+        font-size: 1.1rem;
+
+        &:hover {
+          background: #111111;
+          border: none;
+          color: $color-1;
+          box-shadow: 0 3px 10px $color-1;
+        }
+
+        .arrow_log {
+          @media screen and(max-width: 480px) {
+            transform: translateX(-0.3rem);
+          }
+          width: 40px;
+          transform: translate(10px, 2px);
+        }
+        @media screen and(max-width:480px) {
+          span {
+            display: none;
+          }
+        }
+      }
+    }
+    .nav-content-out {
+      @media screen and(max-width: 480px) {
+        transform: translateX(-4rem);
+      }
+      h6 {
+        margin-left: 1rem;
+      }
+      h5 {
+        margin-top: 0.3rem;
+      }
+      .logout_nav {
+        @media screen and(max-width: 480px) {
+          transform: translateX(8rem);
+          width: 12vw;
+        }
+        display: flex;
+        color: #111111;
+        background: $color-1;
+        padding: 7px 24px 7px 12px;
+        border: 2px solid $color-3;
+        border-radius: 20px;
+        font-size: 1.1rem;
+
+        &:hover {
+          background: #111111;
+          border: none;
+          color: $color-1;
+          box-shadow: 0 3px 10px $color-1;
+        }
+        .arrow_logout {
+          @media screen and(max-width: 480px) {
+            transform: translateX(-0.3rem);
+          }
+          width: 40px;
+          transform: translateX(10px);
+        }
+        @media screen and(max-width:720px) {
+          span {
+            display: none;
+          }
         }
       }
     }
   }
-  
 }
-

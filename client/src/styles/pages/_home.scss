@@ -1,4 +1,7 @@
 .home-complete {
+  @media screen and(max-width: 480px) {
+    margin-bottom: -5rem;
+  }
   margin: 0;
   #header_stains{
    #top_stain {
@@ -18,14 +21,27 @@
     background: $white;
     box-shadow: 0px 2px 8px 1px #5b5b5bca;
     border-radius: 8px;
-    position: absolute;
-    top: 100px;
-    z-index: 1000;
+    position: fixed;
+    top: 30%;
+    z-index: 100;
     width: 90vw;
     max-height: 80vh;
     margin: 0 1.5rem;
     border: 3px solid $color-4;
     
+    .close-modal {
+      float: right;
+      height: 1.5rem;
+      z-index: 1000;
+      background: $color-2;
+      color: $color-1;
+      padding: 0 5px 5px 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-block;
+      font-family: $font-3;
+      transform: translate(-0.5rem, 0.5rem);
+    }
     
 
   }
@@ -65,27 +81,10 @@
       margin: 0 0.27rem;
     }
     .home-header {
-      @media screen and(max-width:480px) {
-        z-index: 1000;
-        position: fixed;
-        top: 390px;
-        left: 300px;
-      }
+      
       text-align: center;
 
-      #modal-post-480 {
-        z-index: 1000;
-        position: fixed;
-        top: 390px;
-        left: 300px;
-        padding: 3.2rem 4rem 3rem 3rem;
-        background-color: transparent;
-        background-image: url('../assets/img/stain_middle_grey.png');
-        background-repeat: no-repeat;
-        background-size: 90% 100%;
-        color: $color-1;
-        text-shadow: 1px 2px 1px $black;
-      }
+      
       
       .connection-form {
         background: $color-4;
@@ -183,4 +182,21 @@
   }
   
 }
+#modal-post-480 {
+        z-index: 1000;
+        position: fixed;
+        bottom: 5rem;
+        right: 0.5rem;
+        padding: 3.2rem 4rem 3rem 3rem;
+        background-color: transparent;
+        background-image: url('../assets/img/stain_middle_grey.png');
+        background-repeat: no-repeat;
+        background-size: 90% 100%;
+        color: $color-1;
+        text-shadow: 1px 2px 1px $black;
+      }
+}
+.footer-home {
+  transform: translateY(-19rem);
+  margin-bottom: -1rem;
 }

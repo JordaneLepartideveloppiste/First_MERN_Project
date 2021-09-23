@@ -14,10 +14,11 @@
   background-repeat: no-repeat;
   background-size: 100% 100%;
 
+  
   .card-container {
     display: grid;
     grid-template-columns: 66px 1fr;
-
+    
     
    
 
@@ -283,8 +284,21 @@
           transform: translateY(-270px);
         }
         .button-container {
+          @media screen and(max-width:480px) {
+          transform: translate(12.5rem, -15.9rem);
+          
+        }
           transform: translate(240px, -280px);
           .btn {
+            @media screen and(max-width:480px) {
+              font-size: 1.2rem;
+              height: 10rem;
+              padding-top: 2rem;
+              background-image: url("../assets/img/stain_orange_3.png");
+              background-repeat: no-repeat;
+              background-size: 100% 100%;
+              background-position: -1.8rem -3rem;
+            }
             font-size: 1.3em;
             text-align: center;
             background-image: url("../assets/img/brush_btn_submit.png");
@@ -317,7 +331,7 @@
           transform: translate(8rem, -13.9rem);
           
         }
-        @media screen and(max-width:640px) {
+        @media screen and(max-width:480px) {
           transform: translate(6rem, -15.9rem);
           
         }
@@ -363,6 +377,9 @@
         @media screen and(max-width:720px) {
           transform: translate(-0.5rem, -8rem);
         }
+        @media screen and(max-width:480px) {
+          transform: translate(-0.5rem, -8rem);
+        }
         width: 146px;
         height: 130px;
         z-index: 3;
@@ -372,6 +389,9 @@
       .update-post-picture {
         @media screen and(max-width:1024px) {
           transform: translate(0rem, -23rem);
+        }
+        @media screen and(max-width:480px) {
+          transform: translate(0rem, -28.5rem);
         }
         width: 127px;
         height: 127px;
@@ -417,7 +437,7 @@
               transform: translate(-10.5rem, -13.5rem);
         }
           @media screen and(max-width:480px) {
-              transform: translate(5rem, -23.5rem);
+              transform: translate(2.5rem, -13.5rem);
         }
           transform: translate(13.8rem, -26.8rem);
  
@@ -430,6 +450,9 @@
           }
           @media screen and(max-width:720px) {
               transform: translate(-17.1rem, -34rem);
+          }
+          @media screen and(max-width:480px) {
+              transform: translate(-3rem, -37rem);
           }
           transform: translate(16.1rem, -30rem);
         }
@@ -444,7 +467,7 @@
               transform: translate(5.1rem, -12.9rem);
         }
           @media screen and(max-width:480px) {
-              transform: translate(3.8rem, -14.4rem);
+              transform: translate(1.3rem, -4.4rem);
         }
           transform: translate(29.5rem, -26rem);
         }
@@ -455,11 +478,24 @@
           @media screen and(max-width:720px) {
             transform: translate(-4rem, -33.5rem);
           }
+          @media screen and(max-width:480px) {
+            transform: translate(-4rem, -28.9rem);
+          }
           transform: translate(29.2rem, -30rem);
         }
       }
     }
   }
+  .light {
+    @media screen and(max-width: 480px) {
+        height: 355px;
+      }
+  }
+}
+.empty-space {
+  @media screen and(max-width: 480px) {
+        height: 90px;
+      }
 }
 .card-footer {
   @media screen and(max-width:1024px) {
@@ -474,6 +510,11 @@
   }
   @media screen and(max-width:640px) {
     margin-top: 6rem;
+        }
+  @media screen and(max-width:480px) {
+    margin-top: 3rem;
+    width: 65%;
+    transform: translate(3.6rem, -3rem);
         }
   display: flex;
   width: 80%;
@@ -516,7 +557,9 @@
   }
 }
 .card-comments {
- 
+  @media screen and(max-width:480px) {
+   margin-top: 3rem;
+    }
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -531,6 +574,15 @@
     @media screen and(max-width:720px) {
       width: 75vw;
     }
+    @media screen and(max-width:640px) {
+      width: 75vw;
+    }
+    @media screen and(max-width:480px) {
+      width: 80vw;
+      margin-top: 1rem;
+      padding: 4rem 4rem 2rem;
+    }
+    
     box-sizing: border-box;
     width: 40vw;
     min-height: 30vh;
@@ -558,9 +610,11 @@
       align-items: center;
       margin-top: 1.2rem;
       .left-part {
+        
         margin-right: 0.8rem;
         padding-bottom: 5rem;
-        img {
+        .commenter-pic {
+          
           height: 50px;
           width: 50px;
           border-radius: 6px;
@@ -568,10 +622,7 @@
           object-fit: cover;
           background-color: #f9f4f7;
 
-          @media screen and(max-width: 440px) {
-            height: 37px;
-            width: 37px;
-          }
+          
         }
       }
       .right-part {
@@ -589,11 +640,29 @@
           margin-left: 0.5rem;
           transform: translateY(-1.3rem);
 
-          @media screen and(max-width: 440px) {
+          @media screen and(max-width: 480px) {
             flex-direction: column;
+            margin-left: 0rem;
           }
 
           .pseudo {
+            @media screen and(max-width: 480px) {
+              transform: translateX(-2rem);
+              width: 48vw;
+            justify-content: space-around;
+            .commenter-pic {
+          
+          height: 50px;
+          width: 50px;
+          border-radius: 6px;
+          box-shadow: 1px 1px 3px 1px rgba(51, 51, 51, 0.192);
+          object-fit: cover;
+          background-color: #f9f4f7;
+
+          
+        }
+            
+          }
             display: flex;
             justify-content: flex-start;
             width: 20vw;
@@ -623,6 +692,11 @@
             @media screen and(max-width:720px) {
               width: 20vw;
             }
+            @media screen and(max-width:480px) {
+              width: 25vw;
+              padding-top: 0.4rem;
+              transform: translate(4rem, -2rem);
+            }
             width: 10vw;
             font-size: 0.6rem;
             font-style: italic;
@@ -638,6 +712,11 @@
           @media screen and(max-width:720px) {
               width: 50vw;
             }
+            @media screen and(max-width: 480px) {
+              text-align: center;
+              width: 55vw;
+           transform: translate(0rem, -2.6rem);
+          }
           font-family: $font-2;
           width: 25vw;
           min-height: 13vh;
@@ -651,8 +730,19 @@
       }
     }
     .edit-comment {
+      @media screen and(max-width:480px) {
+          width: 90vw;
+          transform: translate(2rem, -2rem);
+          
+            }
       color: $color-2;
       .edit-comment-btn {
+        @media screen and(max-width:720px) {
+              
+            }
+        @media screen and(max-width:480px) {
+          transform: translate(15rem, -1rem);
+            }
         font-size: 0.9rem;
         color: $white;
         text-shadow: none;
@@ -672,6 +762,10 @@
       }
 
       .edit-comment-form {
+        @media screen and(max-width:480px) {
+          width: 80vw;
+          
+            }
         display: flex;
         flex-direction: column;
         width: 35vw;
@@ -679,6 +773,13 @@
         padding: 0.6rem;
 
         .edit-area {
+          @media screen and(max-width:480px) {
+              background-image: url("../assets/img/stain_scroll.png");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+          background-position: -0.3rem 0.1rem;
+          padding: 1rem;
+            }
           display: flex;
           justify-content: center;
           background-image: url("../assets/img/brush_btn2_inactive2.png");
@@ -699,6 +800,12 @@
             
           }
           .update-comment-area {
+            @media screen and(max-width:480px) {
+              color: $white;
+              width: 90%;
+              text-align: center;
+              margin-top: 2rem;
+            }
             padding: 1rem 2rem 5rem 3rem;
             font-size: 0.9rem;
             width: 100%;
@@ -713,6 +820,16 @@
 
           .trash-comment-btn,
           .update-comment-btn {
+            @media screen and(max-width:480px) {
+              font-size: 0.8rem;
+              width: 20vw; 
+              padding: 0.4rem 0.8rem;
+            }
+            padding: 0.3rem 0.8rem;
+            font-size: 1rem;
+            width: 15vw;
+            cursor: pointer;
+
             &:hover {
               color: $color-2;
               text-shadow: 1px 2px 0px $black;
@@ -720,20 +837,21 @@
           }
 
           .trash-comment-btn {
-            font-size: 1rem;
-            width: 15vw;
-            padding: 0.5rem 0.8rem;
+            @media screen and(max-width:480px) {
+              background-position-y: 0.1rem;
+            }
+          
             margin-right: 2rem;
-            cursor: pointer;
             margin-bottom: 0.4rem;
             background-position-y: 0.2rem;
             transform: translateY(0.5rem);
             background-color: transparent;
           }
-          .update-comment-btn {
-            font-size: 1rem;
-            width: 15vw;
-            padding: 0.3rem;
+          .update-comment-btn { 
+            @media screen and(max-width:480px) {
+              background-position-y: 0.15rem;
+            }
+            
             margin-left: 1rem;
             background-position-y: 0rem;
             transform: translateY(0.2rem);
@@ -743,6 +861,14 @@
     }
   }
   .comment-container-client {
+    @media screen and(max-width:480px) {
+      background-image: url("../assets/img/stain_lil_btn_hover.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position-x: 1rem;
+
+      
+    }
     color: rgb(61, 61, 61);
     margin-right: 5rem;
     background: transparent;
@@ -751,14 +877,25 @@
     background-size: 100% 100%;
     background-position-x: 1rem;
 
+    
+    
+
   }
   .comment-container {
+    @media screen and(max-width:480px) {
+      background-image: url("../assets/img/stain_scroll.png");
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position-x: 0rem;
+    }
     
     background-image: url("../assets/img/brush_btn1.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position-x: 1rem;
     color: $white;
+
+    
 
   }
   .comment-form {
@@ -767,6 +904,10 @@
     justify-content: center;
     align-items: flex-end;
     margin-bottom: 1rem;
+    }
+    @media screen and(max-width:480px) {
+     align-items: center; 
+     width: 85vw;
     }
     
     width: 60vw;
@@ -784,11 +925,19 @@
       }
       @media screen and(max-width:720px) {
        width: 85vw; 
+       font-size: 1.4rem;
        
           }
-          @media screen and(max-width:640px) {
+      @media screen and(max-width:640px) {
     margin-top: 7.5rem;
+    font-size: 1.3rem;
         }
+        @media screen and(max-width:480px) {
+      width: 90vw;
+      margin-top: 1.5rem;
+      margin-left: 2rem;
+      font-size: 1.2rem;
+    }
 
       margin-top: 0;
       flex: 3;
@@ -811,6 +960,10 @@
         font-size: 1.2rem;
         background-position: 2.2rem 1rem;
       }
+      @media screen and(max-width:480px) {
+          width: 30vw;
+          margin-left: 1.5rem;
+    }
       background-image: url("../assets/img/stain_lil_btn.png");
       background-repeat: no-repeat;
       background-size: 60% 70%;
@@ -826,10 +979,13 @@
         padding-left: 1rem;
         width: 20vw;
         background-position: 3rem 1rem;
-      }
-      @media screen and(max-width:720px) {
-        background-position: 2.2rem 1rem;
-      }
+        }
+        @media screen and(max-width:720px) {
+          background-position: 2.2rem 1rem;
+        }
+        @media screen and(max-width:480px) {
+      
+    }
         background-image: url("../assets/img/stain_lil_btn_hover.png");
         background-repeat: no-repeat;
         background-size: 60% 70%;

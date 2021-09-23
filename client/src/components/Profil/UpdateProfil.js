@@ -17,18 +17,7 @@ const UpdateProfil = () => {
     const [updateForm, setUpdateForm]= useState(false); 
     const dispatch= useDispatch();
     const [file, setFile] = useState();
-    const [actualWidth, setActualWidth] = useState(window.innerWidth);
-
-    useEffect(() => {
-      const updateActualWidth = () => {
-        let w = window;
-        let width = w.innerWidth;
-        setActualWidth(width);
-      };
-      window.addEventListener("resize", updateActualWidth);
-      updateActualWidth();
-      console.log(actualWidth);
-    }, []);
+    
    
 
 
@@ -56,7 +45,11 @@ const UpdateProfil = () => {
         <div className="update-container">
           <div className="left-part">
             <h3>Ta Tête</h3>
-            <img src={userData.picture} alt="photo_profil" />
+            <img
+              src={userData.picture}
+              alt="photo_profil"
+              className="user-pic"
+            />
             <Uploadimg
               label="Change de tête"
               setFile={setFile}
@@ -70,7 +63,10 @@ const UpdateProfil = () => {
               <div className="bio-update">
                 <h3>Ta description</h3>
                 <p onClick={() => setUpdateForm(!updateForm)}>{userData.bio}</p>
-                <button onClick={() => setUpdateForm(!updateForm)}>
+                <button
+                  className="update-bio-btn"
+                  onClick={() => setUpdateForm(!updateForm)}
+                >
                   Modifier
                 </button>
                 <Link to="/">
@@ -85,7 +81,9 @@ const UpdateProfil = () => {
                   defaultValue={userData.bio}
                   onChange={(e) => setBio(e.target.value)}
                 ></textarea>
-                <button onClick={handleUpdate}>Valider</button>
+                <button className="update-bio-btn" onClick={handleUpdate}>
+                  Valider
+                </button>
                 <Link to="/">
                   <button id="back-home">Retour à l'accueil</button>
                 </Link>
@@ -112,12 +110,12 @@ const UpdateProfil = () => {
                 </span>
               </div>
               <div className="followers-list-profil">
-                <ul>
+                <div className="list-follo">
                   {usersData.map((user) => {
                     for (let i = 0; i < userData.followers.length; i++) {
                       if (user._id === userData.followers[i]) {
                         return (
-                          <li key={user._id}>
+                          <dix className="follo" key={user._id}>
                             <img
                               src={user.picture}
                               alt="user-pic"
@@ -135,13 +133,13 @@ const UpdateProfil = () => {
                                 type={"card"}
                               />
                             </div>
-                          </li>
+                          </dix>
                         );
                       }
                     }
                     return null;
                   })}
-                </ul>
+                </div>
               </div>
             </div>
             <div className="follow-count">
@@ -158,12 +156,12 @@ const UpdateProfil = () => {
                 </span>
               </div>
               <div className="followings-list-profil">
-                <ul>
+                <div className="list-follo">
                   {usersData.map((user) => {
                     for (let i = 0; i < userData.following.length; i++) {
                       if (user._id === userData.following[i]) {
                         return (
-                          <li key={user._id}>
+                          <div className="follo" key={user._id}>
                             <img
                               src={user.picture}
                               alt="user-pic"
@@ -181,17 +179,17 @@ const UpdateProfil = () => {
                                 type={"card"}
                               />
                             </div>
-                          </li>
+                          </div>
                         );
                       }
                     }
                     return null;
                   })}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
-          {actualWidth < 721 ? <FriendsHint /> : null}
+          
         </div>
         {/* {followingPopUp && (
           <div className="popup-profil-container">

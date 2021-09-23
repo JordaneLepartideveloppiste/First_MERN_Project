@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import { UidContext } from "./AppContext";
@@ -14,7 +14,7 @@ const Navbar = () => {
     return (
       <nav>
         <div className="nav-container">
-          <div className="logo">
+          <div className="logo-container">
             <NavLink exact to="/">
               <div className="logo">
                 <img src={stain} alt="icone" />
@@ -23,25 +23,24 @@ const Navbar = () => {
             </NavLink>
           </div>
           {uid ? (
-            <ul>
-              <li></li>
-              <li className="welcome">
+            <div className="nav-content nav-content-out">
+              <div className="welcome">
                 <h6>Bienvenue</h6>
                 <NavLink exact to="/profil">
                   <h5>{userData.pseudo}</h5>
                 </NavLink>
-              </li>
-              <LogOut />
-            </ul>
+                <LogOut />
+              </div>
+            </div>
           ) : (
-            <ul>
-              <li></li>
-              <li className="welcome">
+            <div className="nav-content nav-content-in">
+              <div className="welcome">
+                <h5>Les Artistes</h5>
                 <NavLink exact to="/profil">
                   <Login />
                 </NavLink>
-              </li>
-            </ul>
+              </div>
+            </div>
           )}
         </div>
       </nav>

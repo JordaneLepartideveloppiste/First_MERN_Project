@@ -5,7 +5,7 @@ import FollowHandler from '../Profil/FollowHandler';
 import { isEmpty, timestampParser } from '../Utils';
 import EditDeleteComment from './EditDeleteComment';
 
-const CardComments = ( { post } ) => {
+const CardComments = ( { post, actualWidth } ) => {
    
     
     const userData = useSelector((state) => state.userReducer);
@@ -27,24 +27,43 @@ const CardComments = ( { post } ) => {
                     key={comment._id}
                   >
                     <div className="comment-top">
-                      <div className="left-part">
-                        <img
-                          src={
-                            !isEmpty(usersData[0]) &&
-                            usersData
-                              .map((user) => {
-                                if (user._id === comment.commenterId)
-                                  return user.picture;
-                                else return null;
-                              })
-                              .join("")
-                          }
-                          alt="commenter-pic"
-                        />
-                      </div>
+                      {actualWidth > 480 ? (
+                        <div className="left-part">
+                          <img
+                            src={
+                              !isEmpty(usersData[0]) &&
+                              usersData
+                                .map((user) => {
+                                  if (user._id === comment.commenterId)
+                                    return user.picture;
+                                  else return null;
+                                })
+                                .join("")
+                            }
+                            alt="commenter-pic"
+                            className="commenter-pic"
+                          />
+                        </div>
+                      ) : null}
                       <div className="right-part">
                         <div className="comment-header">
                           <div className="pseudo">
+                            {actualWidth < 481 && (
+                              <img
+                                src={
+                                  !isEmpty(usersData[0]) &&
+                                  usersData
+                                    .map((user) => {
+                                      if (user._id === comment.commenterId)
+                                        return user.picture;
+                                      else return null;
+                                    })
+                                    .join("")
+                                }
+                                alt="commenter-pic"
+                                className="commenter-pic"
+                              />
+                            )}
                             <h3>{comment.commenterPseudo}</h3>
                             {comment.commenterId !== userData._id && (
                               <FollowHandler
