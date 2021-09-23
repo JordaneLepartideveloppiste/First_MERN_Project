@@ -7,7 +7,7 @@ import LogOut from './Log/LogOut';
 import stain from "../styles/assets/img/logo_les_artistes.png";
 
 
-const Navbar = () => {
+const Navbar = ({actualWidth}) => {
   const uid = useContext(UidContext);
   const userData = useSelector((state) => state.userReducer)
 
@@ -25,17 +25,19 @@ const Navbar = () => {
           {uid ? (
             <div className="nav-content nav-content-out">
               <div className="welcome">
-                <h6>Bienvenue</h6>
-                <NavLink exact to="/profil">
-                  <h5>{userData.pseudo}</h5>
-                </NavLink>
+                <div className="welcome-message">
+                  <h6>Bienvenue</h6>
+                  <NavLink exact to="/profil">
+                    <h5>{userData.pseudo}</h5>
+                  </NavLink>
+                </div>
                 <LogOut />
               </div>
             </div>
           ) : (
             <div className="nav-content nav-content-in">
               <div className="welcome">
-                <h5>Les Artistes</h5>
+                {actualWidth < 481 && <h5>Les Artistes</h5>}
                 <NavLink exact to="/profil">
                   <Login />
                 </NavLink>

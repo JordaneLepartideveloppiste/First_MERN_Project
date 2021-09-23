@@ -12,9 +12,9 @@ My First **MERN** Project is a social network application instagram like. It is 
 
 Named "Les Artistes" cause handwriting and ink stain theme.
 
-Responsive breakpoints : 320/480/640/720/1024/1280.
+Responsive breakpoints : 320 / 480 / 640 / 720 / 1024 / 1280.
 
-####Status Project :
+Status Project :
 Responsive in progress.
 ### Technologies
 ***

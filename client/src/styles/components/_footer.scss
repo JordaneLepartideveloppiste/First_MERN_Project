@@ -6,7 +6,7 @@
       @media screen and(max-width: 480px) {
         transform: translateY(-2rem);
       }
-      transform: translateY(-2rem);
+      transform: translateY(-14rem);
       width: 100%;
     }
   }
@@ -15,16 +15,17 @@
     margin: O;
     height: 10rem;
     width: 100vw;
-    height: 10rem;
+    height: 8rem;
     box-shadow: 0px -4px 0px $color-3, 0px -6px 0px $color-1;
     padding: 0 20px;
     background: $black;
+    transform: translateY(2rem);
     @media screen and(max-width: 720px) {
       padding: 0;
     }
     @media screen and(max-width: 480px) {
       height: 6rem;
-      transform: translateY(2rem);
+      
     }
 
 
@@ -42,8 +43,9 @@
       height: 45px;
       align-items: center;
 
-      .logo {
-        @media screen and(max-width:720px) {
+      .footer-left-part {
+        .logo {
+          @media screen and(max-width:720px) {
           transform: translateX(-3.5rem);
         }
         @media screen and(max-width:640px) {
@@ -53,10 +55,21 @@
           transform: translateX(0);
           margin-left: 1rem;
         }
+        }
+        
+        width: 15vw;
         display: flex;
+        flex-direction: column;
+        justify-content: space-around;
         align-items: center;
 
-        h3 {
+        h6 {
+          font-size: 1rem;
+          font-family: $font-3;
+          color: $color-1;
+        }
+
+        span {
           @media screen and(max-width:720px) {
             transform: translate(15px, 12px);
             font-size: 2rem;
@@ -68,11 +81,11 @@
           @media screen and(max-width: 480px) {
             display: none;
           }
-          transform: translate(15px, 12px);
-          font-size: 2.4rem;
-          font-family: $font-4;
-          letter-spacing: 1px;
-          text-shadow: 2px 3px 0px $color-3;
+          
+          font-size: 0.8rem;
+          font-family: $font-2;
+          color: $color-4;
+
         }
         img {
           @media screen and(max-width:720px) {
@@ -85,22 +98,36 @@
         }
       }
 
-      ul {
+      .footer-center-part {
         @media screen and(max-width: 480px) {
           width: 65vw;
           transform: translateX(-4rem);
         }
         display: flex;
+        margin-top: 4rem;
         align-items: center;
-        justify-content: center;
-        width: 35vw;
-        justify-content: space-between;
+        justify-content: space-around;
+        width: 55vw;
+ 
         font-size: 1.2rem;
+.center-part-left {
 
-        .see-you {
+  .dare-you {
+    padding: 2rem 3rem 4rem 4rem;
+    background-image: url("../assets/img/stain_half_orange.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 0 0;
+    span {
+     font-size: 1.4rem;
+    }
+  }
+.see-you {
           transform: translateY(7px);
           color: $color-3;
           display: flex;
+
+          margin-bottom: 3.5rem;
 
           @media screen and(max-width: 720px) {
             margin-right: 7rem;
@@ -113,33 +140,102 @@
           }
 
           h5 {
+            color: $color-1;
             font-size: 1.4em;
-            text-shadow: 2px 3px 0px $color-3;
+            text-shadow: 1px 2px 0px $color-3;
+            font-family: $font-4;
           }
 
-          h6,
+          span,
           h5 {
-            font-family: $font-3;
             margin-right: 10px;
           }
 
-          h6 {
+          span {
             color: $color-2;
-            transform: translateY(1px);
+            font-size: 1.2rem;
+            font-family: $font-2;
           }
+          
         }
+        .go-to-profil {
+          
+         padding: 2.5rem 2rem 1.5rem 1.5rem;
+          color: $color-3;
+          background-image: url("../assets/img/stain_half_grey_bis.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 0 0;
 
-        li {
-          img {
-            height: 36px;
-            width: 36px;
-            cursor: pointer;
-            display: grid;
-            align-items: center;
-            justify-items: center;
-            height: 100%;
-          }
+            &:hover {
+              color: $color-3;
+          text-shadow: 1px 2px 0px $white;
+              background-image: url("../assets/img/stain_half_orange_bis.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position: 0 0;
+            }
         }
+}
+       .center-part-right {
+         margin-top: 2rem;
+         span {
+           color: $color-2;
+            font-size: 1.2em;
+            font-family: $font-3;
+         }
+          p {
+            width: 25vw;
+            color: $color-4;
+            font-family: $font-2;
+            font-size: 1rem;
+          }
+          .arrow-footer {
+            float: right;
+            transform: translate(-2rem, -1rem);
+            width: 4vw;
+
+          }
+          
+       } 
+        
+
+        
+      }
+      .footer-right-part {
+        width: 35vw;
+        background-image: url("../assets/img/player_bg.png");
+            background-repeat: no-repeat;
+            background-size: 75% 100%;
+            background-position: 2rem 0;
+            margin-top: 5.45rem;
+            padding: 1.5rem 0 1.5rem 4rem;
+
+            .link {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              font-family: $font-1;
+              color: $black;
+              font-size: 1rem;
+
+              &:hover {
+                color: $color-1;
+              }
+            }
+
+            .linkedin {
+              .linkedin-icon {
+                width: 3vw;
+              }
+             
+            }
+            .github {
+              .github-icon {
+                width: 3vw;
+              }
+              
+            }
       }
     }
   }

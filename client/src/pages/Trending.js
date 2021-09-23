@@ -31,7 +31,6 @@ const Trending = () => {
             </div>
           </div>
         </div>
-        <FootStains />
       </>
     );
 };

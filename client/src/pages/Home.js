@@ -71,7 +71,7 @@ useEffect(() => {
             </button>
           )}
         </div>
-        <Footer className="footer-home" />
+        
       </>
     );
 };

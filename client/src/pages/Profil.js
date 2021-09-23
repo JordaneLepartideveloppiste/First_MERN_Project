@@ -44,7 +44,6 @@ const Profil = () => {
             ) : null}
           </div>
         </div>
-        <Footer className="footer-profil" />
       </>
     );
 };

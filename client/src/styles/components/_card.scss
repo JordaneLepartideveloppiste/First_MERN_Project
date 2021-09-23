@@ -109,6 +109,7 @@
           font-size: 2em;
           transform: translateY(15px);
           text-shadow: 2px 2px 0px $color-1;
+          z-index: 10;
 
           @media screen and(max-width: 720px) {
             margin-left: -0.5rem;
@@ -119,12 +120,16 @@
 
           span {
             cursor: pointer;
+            margin: 0 0 -1rem 0.5rem;
+          
+
             @media screen and(max-width: 440px) {
               margin: 0px 0 -10px;
               padding: 0;
             }
 
             img {
+            
               background-image: url("../assets/img/stain_lil_btn.png");
           background-repeat: no-repeat;
           background-size: 105% 105%;
@@ -218,7 +223,7 @@
           height: 360px;
           transform: translate(-5.85rem, 1.5rem);
     }
-          z-index: -10;
+          z-index: -1;
           width: 600px;
           height: 460px;
           transform: translate(-16px, -78px);
@@ -427,6 +432,9 @@
         
         
         .post-video-iframe {
+          transform: translate(13.8rem, -19.7rem);
+
+
           @media screen and(max-width:1024px) {
               transform: translate(12rem, -37.1rem);
           }
@@ -439,7 +447,7 @@
           @media screen and(max-width:480px) {
               transform: translate(2.5rem, -13.5rem);
         }
-          transform: translate(13.8rem, -26.8rem);
+          
  
 
 
@@ -469,7 +477,7 @@
           @media screen and(max-width:480px) {
               transform: translate(1.3rem, -4.4rem);
         }
-          transform: translate(29.5rem, -26rem);
+          transform: translate(29.5rem, -19rem);
         }
         .border-update-card-video {
           @media screen and(max-width:1024px) {

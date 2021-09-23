@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Redirect, Route } from 'react-router-dom';
 import Home from '../../pages/Home';
 import Trending from '../../pages/Trending';
 import Profil from '../../pages/Profil';
 import Navbar from '../Navbar';
 import NotFound from '../../pages/NotFound';
+import Footer from '../Footer';
 
 
-const index = () => {
+const Index = () => {
+  const [actualWidth, setActualWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const updateActualWidth = () => {
+      let w = window;
+      let width = w.innerWidth;
+      setActualWidth(width);
+    };
+    window.addEventListener("resize", updateActualWidth);
+    updateActualWidth();
+    console.log(actualWidth);
+  }, []);
+
     return (
       <div>
         <Router>
-          <Navbar />
+          <Navbar actualWidth={actualWidth}/>
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/trending" exact component={Trending} />
@@ -19,9 +33,10 @@ const index = () => {
             <Route path="/*" component={NotFound} />
             <Redirect to="/" />
           </Switch>
+          <Footer actualWidth={actualWidth} />
         </Router>
       </div>
     );
 };
 
-export default index;
+export default Index;

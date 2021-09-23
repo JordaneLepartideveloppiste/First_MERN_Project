@@ -1,4 +1,5 @@
 .profil-complete {
+  margin-bottom: 6rem;
   #header_stains {
     #top_stain {
       transform: translateY(65px);
@@ -358,6 +359,8 @@
               padding: 1rem 0;
             }
             #back-home {
+              width: 30vw;
+              padding: 0.8rem 0;
               @media screen and(max-width:720px) {
                 width: 27vw;
                 position: fixed;
