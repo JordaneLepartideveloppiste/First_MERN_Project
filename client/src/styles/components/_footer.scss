@@ -3,6 +3,9 @@
     height: 3.8rem;
 
     #bottom_stain {
+      @media screen and(max-width: 1024px) {
+        transform: translate(0.3rem, -10.5rem);
+      }
       @media screen and(max-width: 480px) {
         transform: translateY(-2rem);
       }
@@ -15,11 +18,15 @@
     margin: O;
     height: 10rem;
     width: 100vw;
-    height: 8rem;
+    height: 10rem;
     box-shadow: 0px -4px 0px $color-3, 0px -6px 0px $color-1;
     padding: 0 20px;
     background: $black;
     transform: translateY(2rem);
+    @media screen and(max-width: 1024px) {
+      width: 103vw;
+      height: 11rem;
+    }
     @media screen and(max-width: 720px) {
       padding: 0;
     }
@@ -99,6 +106,9 @@
       }
 
       .footer-center-part {
+        @media screen and(max-width: 1024px) {
+          margin-top: 8rem;
+        }
         @media screen and(max-width: 480px) {
           width: 65vw;
           transform: translateX(-4rem);
@@ -129,6 +139,9 @@
 
           margin-bottom: 3.5rem;
 
+          @media screen and(max-width: 1024px) {
+            margin-right: 2rem;
+          }
           @media screen and(max-width: 720px) {
             margin-right: 7rem;
           }
@@ -140,6 +153,9 @@
           }
 
           h5 {
+            @media screen and(max-width: 1024px) {
+            font-size: 1.2rem;
+          }
             color: $color-1;
             font-size: 1.4em;
             text-shadow: 1px 2px 0px $color-3;
@@ -148,10 +164,14 @@
 
           span,
           h5 {
+            
             margin-right: 10px;
           }
 
           span {
+            @media screen and(max-width: 1024px) {
+            font-size: 1rem;
+          }
             color: $color-2;
             font-size: 1.2rem;
             font-family: $font-2;
@@ -178,13 +198,23 @@
         }
 }
        .center-part-right {
+         @media screen and(max-width: 1024px) {
+        transform: translateX(1rem);
+      }
          margin-top: 2rem;
          span {
+           @media screen and(max-width: 1024px) {
+            font-size: 1rem;
+          }
            color: $color-2;
             font-size: 1.2em;
             font-family: $font-3;
          }
           p {
+            @media screen and(max-width: 1024px) {
+        width: 20vw;
+        
+      }
             width: 25vw;
             color: $color-4;
             font-family: $font-2;
@@ -203,12 +233,15 @@
         
       }
       .footer-right-part {
+        @media screen and(max-width: 1024px) {
+        width: 43vw;
+      }
         width: 35vw;
-        background-image: url("../assets/img/player_bg.png");
+        background-image: url("../assets/img/brush_grey_footer.png");
             background-repeat: no-repeat;
             background-size: 75% 100%;
             background-position: 2rem 0;
-            margin-top: 5.45rem;
+            margin-top: 8rem;
             padding: 1.5rem 0 1.5rem 4rem;
 
             .link {
@@ -217,7 +250,8 @@
               align-items: center;
               font-family: $font-1;
               color: $black;
-              font-size: 1rem;
+              font-size: 0.9rem;
+              padding: 0.5rem 0.8rem 0.2rem 0;
 
               &:hover {
                 color: $color-1;

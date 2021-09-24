@@ -129,6 +129,9 @@ nav {
       transform: translateX(22rem);
 
 
+      @media screen and(max-width: 1024px) {
+        transform: translateX(14rem);
+      }
       @media screen and(max-width: 480px) {
         transform: translateX(-4rem);
       }
@@ -179,7 +182,9 @@ nav {
       }
     }
     .nav-content-out {
-      
+      @media screen and(max-width: 1024px) {
+        transform: translateX(-5rem);
+      }
       @media screen and(max-width: 480px) {
         transform: translateX(-4rem);
       }

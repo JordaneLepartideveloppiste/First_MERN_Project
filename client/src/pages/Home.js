@@ -40,9 +40,7 @@ useEffect(() => {
               <div className="home-header">
                 {uid ? (
                   actualWidth > 480 && <NewPostForm actualWidth={actualWidth} />
-                ) : actualWidth > 480 ? (
-                  <Log signin={true} signup={false} />
-                ) : null}
+                ) :  null}
               </div>
               <Thread setBtnNewPost={setBtnNewPost} actualWidth={actualWidth} />
             </div>
